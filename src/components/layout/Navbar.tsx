@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -17,6 +17,8 @@ const navLinks = [
 
 export default function Navbar() {
   const t = useTranslations("nav");
+  const locale = useLocale();
+  const resumeUrl = locale === "es" ? siteConfig.resumeEs : siteConfig.resumeEn;
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
@@ -84,7 +86,7 @@ export default function Navbar() {
           <ThemeToggle />
           <LanguageSwitcher />
           <a
-            href={siteConfig.resumeEn}
+            href={resumeUrl}
             download
             className="btn-outline hidden md:inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg"
           >

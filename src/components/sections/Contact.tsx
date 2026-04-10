@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useState } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { siteConfig } from "@/lib/config";
@@ -36,6 +36,8 @@ function Field({ as, label, ...props }: { as?: "textarea"; label: string } & Rea
 
 export default function Contact() {
   const t = useTranslations("contact");
+  const locale = useLocale();
+  const resumeUrl = locale === "es" ? siteConfig.resumeEs : siteConfig.resumeEn;
   const [status, setStatus] = useState<"idle"|"sending"|"success"|"error">("idle");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
@@ -93,7 +95,7 @@ export default function Contact() {
               ))}
 
               <a
-                href={siteConfig.resumeEn}
+                href={resumeUrl}
                 download
                 className="flex items-center gap-3 text-sm transition-colors duration-200 group"
                 style={{ color: "var(--accent-s)" }}

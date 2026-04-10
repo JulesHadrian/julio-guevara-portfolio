@@ -1,12 +1,14 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { siteConfig } from "@/lib/config";
 
 const badges = ["badge1","badge2","badge3","badge4","badge5","badge6"] as const;
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale();
+  const resumeUrl = locale === "es" ? siteConfig.resumeEs : siteConfig.resumeEn;
 
   return (
     <section
@@ -59,7 +61,7 @@ export default function Hero() {
             {t("ctaPrimary")} →
           </a>
           <a
-            href={siteConfig.resumeEn}
+            href={resumeUrl}
             download
             className="btn-outline inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm"
           >
