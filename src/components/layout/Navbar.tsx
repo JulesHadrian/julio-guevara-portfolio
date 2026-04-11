@@ -60,15 +60,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Skip to content */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold"
-        style={{ backgroundColor: "var(--accent)", color: "#fff" }}
-      >
-        {t("skipToContent")}
-      </a>
-
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
