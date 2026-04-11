@@ -2,6 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Plus } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SkillTag from "@/components/ui/SkillTag";
 
@@ -16,21 +18,26 @@ interface Highlight {
   metricLabel: string;
 }
 
-function ImpactCard({ highlight, index, labels }: {
+function ImpactCard({ highlight, labels }: {
   highlight: Highlight;
-  index: number;
   labels: { context: string; actions: string; tech: string; impact: string };
 }) {
   const [expanded, setExpanded] = useState(false);
+  const [hovered, setHovered]   = useState(false);
+
+  const borderColor = expanded
+    ? "var(--accent)"
+    : hovered
+      ? "var(--border-strong)"
+      : "var(--border)";
 
   return (
     <div
-      className="rounded-xl border p-8 transition-all duration-200 cursor-pointer relative overflow-hidden"
-      style={{
-        backgroundColor: "var(--surface)",
-        borderColor: expanded ? "var(--accent)" : "var(--border)",
-      }}
+      className="rounded-xl border p-8 transition-colors duration-200 cursor-pointer relative overflow-hidden"
+      style={{ backgroundColor: "var(--surface)", borderColor }}
       onClick={() => setExpanded(!expanded)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {/* Top accent line */}
       <div
@@ -60,56 +67,67 @@ function ImpactCard({ highlight, index, labels }: {
           </div>
         </div>
         <span
-          className="text-lg transition-transform duration-200 mt-1 shrink-0"
+          className="mt-1 shrink-0 transition-transform duration-200"
           style={{
             color: "var(--text-4)",
-            transform: expanded ? "rotate(45deg)" : "rotate(0deg)",
+            display: "inline-flex",
+            transform: expanded ? "rotate(45deg)" : "rotate(0)",
           }}
         >
-          +
+          <Plus size={18} />
         </span>
       </div>
 
       {/* Expandable */}
-      {expanded && (
-        <div className="space-y-5 pt-5 border-t" style={{ borderColor: "var(--border)" }}>
-          <div>
-            <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
-              {labels.context}
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>
-              {highlight.context}
-            </p>
-          </div>
-          <div>
-            <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
-              {labels.actions}
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>
-              {highlight.actions}
-            </p>
-          </div>
-          <div>
-            <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
-              {labels.tech}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {highlight.tech.map((item) => <SkillTag key={item}>{item}</SkillTag>)}
-            </div>
-          </div>
-          <div
-            className="rounded-lg p-4 border-l-2"
-            style={{ backgroundColor: "var(--metric-bg)", borderLeftColor: "var(--metric)" }}
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            style={{ overflow: "hidden" }}
           >
-            <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--metric-l)" }}>
-              {labels.impact}
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--metric-t)" }}>
-              {highlight.impact}
-            </p>
-          </div>
-        </div>
-      )}
+            <div className="space-y-5 pt-5 border-t" style={{ borderColor: "var(--border)" }}>
+              <div>
+                <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
+                  {labels.context}
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>
+                  {highlight.context}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
+                  {labels.actions}
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>
+                  {highlight.actions}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
+                  {labels.tech}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {highlight.tech.map((item) => <SkillTag key={item}>{item}</SkillTag>)}
+                </div>
+              </div>
+              <div
+                className="rounded-lg p-4 border-l-2"
+                style={{ backgroundColor: "var(--metric-bg)", borderLeftColor: "var(--metric)" }}
+              >
+                <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--metric-l)" }}>
+                  {labels.impact}
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--metric-t)" }}>
+                  {highlight.impact}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -138,7 +156,7 @@ export default function Impact() {
         </div>
         <div className="grid md:grid-cols-2 gap-5">
           {highlights.map((h, i) => (
-            <ImpactCard key={i} highlight={h} index={i} labels={labels} />
+            <ImpactCard key={i} highlight={h} labels={labels} />
           ))}
         </div>
       </div>

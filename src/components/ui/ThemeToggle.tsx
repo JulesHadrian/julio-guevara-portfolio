@@ -27,7 +27,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="theme-toggle w-8 h-8 flex items-center justify-center rounded-lg border transition-colors duration-200 cursor-pointer"
+      className="theme-toggle w-11 h-11 flex items-center justify-center rounded-lg border transition-colors duration-200 cursor-pointer"
       style={{ borderColor: "var(--border-strong)", backgroundColor: "var(--surface)" }}
     >
       {isDark ? <Sun size={15} /> : <Moon size={15} />}

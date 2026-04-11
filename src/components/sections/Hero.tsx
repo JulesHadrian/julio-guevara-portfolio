@@ -46,7 +46,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p
-          className="mb-10 max-w-2xl leading-relaxed"
+          className="mb-10 max-w-xl leading-relaxed"
           style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--text-3)" }}
         >
           {t("subheadline")}

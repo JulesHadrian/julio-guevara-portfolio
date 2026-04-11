@@ -7,7 +7,10 @@
     "skills": "Skills",
     "contact": "Contacto",
     "downloadResume": "Descargar CV",
-    "switchLang": "EN"
+    "switchLang": "EN",
+    "skipToContent": "Ir al contenido principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "hero": {
     "line1": "Desarrollador de Software.",
@@ -112,6 +115,8 @@
     "label": "Proyectos",
     "headline": "Proyectos Seleccionados.",
     "headlineSub": "Sistemas a medida que reemplazaron software externo y entregaron resultados medibles.",
+    "expandLabel": "Ver caso completo",
+    "collapseLabel": "Ver menos",
     "items": [
       {
         "title": "Popup de Captura de Email a Medida: 52% Más Suscriptores que Alia",

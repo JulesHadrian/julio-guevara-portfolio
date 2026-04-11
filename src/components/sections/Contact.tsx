@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { useState } from "react";
+import { Mail, ExternalLink, Download } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { siteConfig } from "@/lib/config";
 
@@ -11,7 +12,13 @@ const inputStyle: React.CSSProperties = {
   color: "var(--text-1)",
 };
 
-function Field({ as, label, ...props }: { as?: "textarea"; label: string } & React.InputHTMLAttributes<HTMLInputElement> & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+function Field({
+  as, label, id, ...props
+}: {
+  as?: "textarea";
+  label: string;
+  id: string;
+} & React.InputHTMLAttributes<HTMLInputElement> & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
   const baseClass = "w-full px-4 py-3 rounded-lg border text-sm outline-none transition-colors duration-200";
 
   const handleFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,16 +30,26 @@ function Field({ as, label, ...props }: { as?: "textarea"; label: string } & Rea
 
   return (
     <div>
-      <label className="block text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
+      <label
+        htmlFor={id}
+        className="block text-xs font-mono uppercase tracking-widest mb-2"
+        style={{ color: "var(--text-3)" }}
+      >
         {label}
       </label>
       {as === "textarea"
-        ? <textarea {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)} className={`${baseClass} resize-none`} style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
-        : <input    {...(props as React.InputHTMLAttributes<HTMLInputElement>)}       className={baseClass}                  style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+        ? <textarea id={id} {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)} className={`${baseClass} resize-none`} style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+        : <input    id={id} {...(props as React.InputHTMLAttributes<HTMLInputElement>)}       className={baseClass}                  style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
       }
     </div>
   );
 }
+
+const socialLinks = [
+  { href: `mailto:${siteConfig.email}`, Icon: Mail,         label: siteConfig.email },
+  { href: siteConfig.linkedin,          Icon: ExternalLink,  label: siteConfig.linkedin.replace("https://www.", "") },
+  { href: siteConfig.github,            Icon: ExternalLink,  label: siteConfig.github.replace("https://", "") },
+] as const;
 
 export default function Contact() {
   const t = useTranslations("contact");
@@ -74,11 +91,7 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4">
-              {[
-                { href: `mailto:${siteConfig.email}`,   icon: "✉",  label: siteConfig.email },
-                { href: siteConfig.linkedin, icon: "in", label: siteConfig.linkedin.replace("https://www.", "") },
-                { href: siteConfig.github,   icon: "GH", label: siteConfig.github.replace("https://", "") },
-              ].map(({ href, icon, label }) => (
+              {socialLinks.map(({ href, Icon, label }) => (
                 <a
                   key={href}
                   href={href}
@@ -87,8 +100,8 @@ export default function Contact() {
                   className="flex items-center gap-3 text-sm transition-colors duration-200 theme-toggle group"
                   style={linkStyle}
                 >
-                  <span className="w-8 h-8 rounded-lg flex items-center justify-center border text-xs font-mono transition-colors duration-200" style={iconStyle}>
-                    {icon}
+                  <span className="w-8 h-8 rounded-lg flex items-center justify-center border transition-colors duration-200" style={iconStyle}>
+                    <Icon size={14} />
                   </span>
                   {label}
                 </a>
@@ -104,7 +117,7 @@ export default function Contact() {
                   className="w-8 h-8 rounded-lg flex items-center justify-center border transition-colors duration-200"
                   style={{ backgroundColor: "var(--accent-bg)", borderColor: "var(--border-strong)" }}
                 >
-                  ↓
+                  <Download size={14} />
                 </span>
                 {t("downloadResume")}
               </a>
@@ -114,9 +127,9 @@ export default function Contact() {
           {/* Right: Form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-5">
-              <Field label={t("nameLabel")} type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: (e.target as HTMLInputElement).value })} placeholder={t("namePlaceholder")} />
-              <Field label={t("emailLabel")} type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: (e.target as HTMLInputElement).value })} placeholder={t("emailPlaceholder")} />
-              <Field as="textarea" label={t("messageLabel")} required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: (e.target as HTMLTextAreaElement).value })} placeholder={t("messagePlaceholder")} />
+              <Field id="contact-name"    label={t("nameLabel")}    type="text"  required value={form.name}    onChange={(e) => setForm({ ...form, name:    (e.target as HTMLInputElement).value    })} placeholder={t("namePlaceholder")}    />
+              <Field id="contact-email"   label={t("emailLabel")}   type="email" required value={form.email}   onChange={(e) => setForm({ ...form, email:   (e.target as HTMLInputElement).value    })} placeholder={t("emailPlaceholder")}   />
+              <Field id="contact-message" label={t("messageLabel")} as="textarea" required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: (e.target as HTMLTextAreaElement).value })} placeholder={t("messagePlaceholder")} />
 
               {status === "success" && <p className="text-sm" style={{ color: "var(--metric)" }}>{t("successMsg")}</p>}
               {status === "error"   && <p className="text-sm" style={{ color: "#F87171" }}>{t("errorMsg")}</p>}
@@ -124,7 +137,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="btn-accent w-full py-3 px-6 rounded-lg text-sm font-semibold disabled:opacity-50"
+                className="btn-accent w-full py-3 px-6 rounded-lg text-sm font-semibold disabled:opacity-50 cursor-pointer"
               >
                 {status === "sending" ? t("sending") : t("submitBtn")} →
               </button>

@@ -7,7 +7,10 @@
     "skills": "Skills",
     "contact": "Contact",
     "downloadResume": "Download Resume",
-    "switchLang": "ES"
+    "switchLang": "ES",
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "line1": "Software Engineer.",
@@ -112,6 +115,8 @@
     "label": "Projects",
     "headline": "Selected Projects.",
     "headlineSub": "Custom-built systems that replaced vendor software and delivered measurable results.",
+    "expandLabel": "Full case study",
+    "collapseLabel": "Show less",
     "items": [
       {
         "title": "Custom Email Capture Popup: 52% More Subscribers Than Alia",

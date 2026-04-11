@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
     <button
       onClick={handleSwitch}
       disabled={isPending}
-      className="text-xs font-mono tracking-widest uppercase transition-colors duration-200 disabled:opacity-50 cursor-pointer theme-toggle"
+      className="min-h-[44px] min-w-[44px] px-2 text-xs font-mono tracking-widest uppercase transition-colors duration-200 disabled:opacity-50 cursor-pointer theme-toggle"
       aria-label={`Switch to ${locale === "en" ? "Spanish" : "English"}`}
     >
       {t("switchLang")}

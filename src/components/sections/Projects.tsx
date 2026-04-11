@@ -2,6 +2,8 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SkillTag from "@/components/ui/SkillTag";
 
@@ -30,9 +32,6 @@ const STATUS_PALETTE = {
   personal: { dot: "#A78BFA", label: "#7C3AED", accent: "#A78BFA", impactBg: "rgba(167,139,250,0.07)", impactBorder: "#A78BFA", impactLabel: "#6D28D9", impactText: "#4C1D95" },
   ready:    { dot: "#22D3EE", label: "#0E7490", accent: "#22D3EE", impactBg: "rgba(34,211,238,0.06)", impactBorder: "#22D3EE", impactLabel: "#0E7490", impactText: "#164E63" },
 } as const;
-
-// In light mode the dark text colors above would be too dark — flip them
-// by reading from CSS vars instead. We keep a single set and let CSS handle the flip.
 
 type StatusKey = keyof typeof STATUS_PALETTE;
 
@@ -99,19 +98,26 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
   collapseLabel: string;
 }) {
   const [expanded, setExpanded] = useState(false);
+  const [hovered, setHovered]   = useState(false);
+
   const p = project.status ? STATUS_PALETTE[project.status as StatusKey] : null;
   const accentColor = p ? p.accent : "var(--accent)";
   const gradientLine = p
     ? `linear-gradient(90deg, ${p.dot}, var(--accent), transparent)`
     : "linear-gradient(90deg, var(--accent), var(--metric), transparent)";
 
+  const borderColor = expanded
+    ? accentColor
+    : hovered
+      ? "var(--border-strong)"
+      : "var(--border)";
+
   return (
     <div
-      className="rounded-xl border transition-all duration-200 overflow-hidden"
-      style={{
-        backgroundColor: "var(--surface)",
-        borderColor: expanded ? accentColor : "var(--border)",
-      }}
+      className="rounded-xl border transition-colors duration-200 overflow-hidden"
+      style={{ backgroundColor: "var(--surface)", borderColor }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {/* Top accent line */}
       <div
@@ -136,45 +142,59 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
 
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-xs font-mono uppercase tracking-widest transition-colors duration-200 flex items-center gap-2 cursor-pointer"
+          className="text-xs font-mono uppercase tracking-widest transition-colors duration-200 flex items-center gap-1.5 cursor-pointer"
           style={{ color: expanded ? "var(--accent-h)" : accentColor }}
         >
-          <span className="transition-transform duration-200" style={{ display: "inline-block", transform: expanded ? "rotate(90deg)" : "rotate(0deg)" }}>›</span>
+          <ChevronRight
+            size={14}
+            className="transition-transform duration-200"
+            style={{ transform: expanded ? "rotate(90deg)" : "rotate(0)" }}
+          />
           {expanded ? collapseLabel : expandLabel}
         </button>
 
-        {expanded && (
-          <div className="space-y-5 mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
-            <div>
-              <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.context}</p>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{project.context}</p>
-            </div>
-            <div>
-              <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.actions}</p>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{project.actions}</p>
-            </div>
-            <div>
-              <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.tech}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((item) => <SkillTag key={item}>{item}</SkillTag>)}
-              </div>
-            </div>
-            <div
-              className="rounded-lg p-4 border-l-2"
-              style={{
-                backgroundColor: p ? p.impactBg : "var(--metric-bg)",
-                borderLeftColor: p ? p.impactBorder : "var(--metric)",
-              }}
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              style={{ overflow: "hidden" }}
             >
-              <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: p ? p.impactLabel : "var(--metric-l)" }}>
-                {labels.impact}
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: p ? p.impactText : "var(--metric-t)" }}>
-                {project.impact}
-              </p>
-            </div>
-          </div>
-        )}
+              <div className="space-y-5 mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.context}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{project.context}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.actions}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{project.actions}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.tech}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((item) => <SkillTag key={item}>{item}</SkillTag>)}
+                  </div>
+                </div>
+                <div
+                  className="rounded-lg p-4 border-l-2"
+                  style={{
+                    backgroundColor: p ? p.impactBg : "var(--metric-bg)",
+                    borderLeftColor: p ? p.impactBorder : "var(--metric)",
+                  }}
+                >
+                  <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: p ? p.impactLabel : "var(--metric-l)" }}>
+                    {labels.impact}
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: p ? p.impactText : "var(--metric-t)" }}>
+                    {project.impact}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
@@ -203,7 +223,13 @@ export default function Projects() {
         </h2>
         <div className="grid gap-6">
           {items.map((project, i) => (
-            <ProjectCard key={i} project={project} labels={labels} expandLabel="Full case study" collapseLabel="Show less" />
+            <ProjectCard
+              key={i}
+              project={project}
+              labels={labels}
+              expandLabel={t("expandLabel")}
+              collapseLabel={t("collapseLabel")}
+            />
           ))}
         </div>
       </div>
