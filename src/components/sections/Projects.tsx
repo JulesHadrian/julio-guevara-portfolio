@@ -25,12 +25,22 @@ interface Project {
   stat2Label: string;
 }
 
-// Status color sets — kept as hardcoded hex because they're semantic
-// indicators that should look the same in both light and dark mode
 const STATUS_PALETTE = {
-  testing: { dot: "#F59E0B", label: "#D97706", accent: "#F59E0B", impactBg: "rgba(245,158,11,0.07)", impactBorder: "#F59E0B", impactLabel: "#B45309", impactText: "#92400E" },
-  personal: { dot: "#A78BFA", label: "#7C3AED", accent: "#A78BFA", impactBg: "rgba(167,139,250,0.07)", impactBorder: "#A78BFA", impactLabel: "#6D28D9", impactText: "#4C1D95" },
-  ready:    { dot: "#22D3EE", label: "#0E7490", accent: "#22D3EE", impactBg: "rgba(34,211,238,0.06)", impactBorder: "#22D3EE", impactLabel: "#0E7490", impactText: "#164E63" },
+  testing: {
+    dot: "#F59E0B", label: "#D97706",
+    impactBg: "rgba(245,158,11,0.06)", impactBorder: "#F59E0B",
+    impactLabel: "#B45309", impactText: "#92400E",
+  },
+  personal: {
+    dot: "var(--personal-dot)", label: "var(--personal-label)",
+    impactBg: "var(--personal-impact-bg)", impactBorder: "var(--personal-impact-border)",
+    impactLabel: "var(--personal-impact-label)", impactText: "var(--personal-impact-text)",
+  },
+  ready: {
+    dot: "var(--ready-dot)", label: "var(--ready-label)",
+    impactBg: "var(--ready-impact-bg)", impactBorder: "var(--ready-impact-border)",
+    impactLabel: "var(--ready-impact-label)", impactText: "var(--ready-impact-text)",
+  },
 } as const;
 
 type StatusKey = keyof typeof STATUS_PALETTE;
@@ -55,16 +65,16 @@ function StatsRow({ project }: { project: Project }) {
 
   if (hasStatus && p) {
     return (
-      <div className="flex flex-wrap items-center gap-4 mb-6">
+      <div className="flex flex-wrap items-center gap-4 mb-5">
         <StatusBadge status={project.status!} statusLabel={project.statusLabel!} />
         <div className="w-px h-4 self-center" style={{ backgroundColor: "var(--border)" }} />
         <div>
-          <p className="text-2xl font-bold font-mono" style={{ color: "var(--text-3)" }}>{project.stat1}</p>
+          <p className="text-xl font-bold font-mono" style={{ color: "var(--text-3)" }}>{project.stat1}</p>
           <p className="text-xs mt-0.5" style={{ color: "var(--text-4)" }}>{project.stat1Label}</p>
         </div>
         <div className="w-px h-4 self-center" style={{ backgroundColor: "var(--border)" }} />
         <div>
-          <p className="text-2xl font-bold font-mono" style={{ color: p.dot }}>{project.stat2}</p>
+          <p className="text-xl font-bold font-mono" style={{ color: p.dot }}>{project.stat2}</p>
           <p className="text-xs mt-0.5" style={{ color: "var(--text-3)" }}>{project.stat2Label}</p>
         </div>
       </div>
@@ -72,19 +82,19 @@ function StatsRow({ project }: { project: Project }) {
   }
 
   return (
-    <div className="flex flex-wrap gap-6 mb-6">
+    <div className="flex flex-wrap gap-6 mb-5">
       <div>
-        <p className="text-3xl font-bold font-mono" style={{ color: "var(--metric)" }}>{project.metric}</p>
+        <p className="text-2xl font-bold font-mono" style={{ color: "var(--metric)" }}>{project.metric}</p>
         <p className="text-xs mt-0.5" style={{ color: "var(--metric-l)" }}>{project.metricLabel}</p>
       </div>
       <div className="w-px self-stretch" style={{ backgroundColor: "var(--border)" }} />
       <div>
-        <p className="text-2xl font-bold font-mono" style={{ color: "var(--text-3)" }}>{project.stat1}</p>
+        <p className="text-xl font-bold font-mono" style={{ color: "var(--text-3)" }}>{project.stat1}</p>
         <p className="text-xs mt-0.5" style={{ color: "var(--text-4)" }}>{project.stat1Label}</p>
       </div>
-      <div className="flex items-center" style={{ color: "var(--border-strong)" }}>→</div>
+      <span style={{ color: "var(--border-strong)", display: "flex", alignItems: "center" }}>→</span>
       <div>
-        <p className="text-2xl font-bold font-mono" style={{ color: "var(--text-1)" }}>{project.stat2}</p>
+        <p className="text-xl font-bold font-mono" style={{ color: "var(--text-1)" }}>{project.stat2}</p>
         <p className="text-xs mt-0.5" style={{ color: "var(--text-3)" }}>{project.stat2Label}</p>
       </div>
     </div>
@@ -101,34 +111,31 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
   const [hovered, setHovered]   = useState(false);
 
   const p = project.status ? STATUS_PALETTE[project.status as StatusKey] : null;
-  const accentColor = p ? p.accent : "var(--accent)";
-  const gradientLine = p
-    ? `linear-gradient(90deg, ${p.dot}, var(--accent), transparent)`
+  const accentColor = p ? p.dot : "var(--accent)";
+  const topLine = p
+    ? `linear-gradient(90deg, ${p.dot}, transparent)`
     : "linear-gradient(90deg, var(--accent), var(--metric), transparent)";
-
-  const borderColor = expanded
-    ? accentColor
-    : hovered
-      ? "var(--border-strong)"
-      : "var(--border)";
 
   return (
     <div
       className="rounded-xl border transition-colors duration-200 overflow-hidden"
-      style={{ backgroundColor: "var(--surface)", borderColor }}
+      style={{
+        backgroundColor: "var(--surface)",
+        borderColor: expanded ? accentColor : hovered ? "var(--border-strong)" : "var(--border)",
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Top accent line */}
       <div
-        className="h-0.5 transition-opacity duration-200"
-        style={{ background: gradientLine, opacity: expanded ? 1 : 0.45 }}
+        className="h-px transition-opacity duration-200"
+        style={{ background: topLine, opacity: expanded || hovered ? 1 : 0.4 }}
       />
 
-      <div className="p-8">
+      <div className="p-7">
         <StatsRow project={project} />
 
-        <h3 className="font-semibold leading-snug mb-4" style={{ fontSize: "1.1rem", color: "var(--text-1)" }}>
+        <h3 className="font-semibold leading-snug mb-4" style={{ fontSize: "1rem", color: "var(--text-1)" }}>
           {project.title}
         </h3>
 
@@ -136,7 +143,7 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
           {project.tags.map((tag) => <SkillTag key={tag} accent={!p}>{tag}</SkillTag>)}
         </div>
 
-        <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-2)" }}>
+        <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--text-2)", lineHeight: 1.7 }}>
           {project.summary}
         </p>
 
@@ -165,11 +172,11 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
               <div className="space-y-5 mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
                 <div>
                   <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.context}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{project.context}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)", lineHeight: 1.75 }}>{project.context}</p>
                 </div>
                 <div>
                   <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.actions}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{project.actions}</p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)", lineHeight: 1.75 }}>{project.actions}</p>
                 </div>
                 <div>
                   <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.tech}</p>
@@ -178,16 +185,18 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
                   </div>
                 </div>
                 <div
-                  className="rounded-lg p-4 border-l-2"
+                  className="rounded-lg p-5 border-l-2"
                   style={{
                     backgroundColor: p ? p.impactBg : "var(--metric-bg)",
                     borderLeftColor: p ? p.impactBorder : "var(--metric)",
                   }}
                 >
-                  <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: p ? p.impactLabel : "var(--metric-l)" }}>
+                  <p className="text-xs font-mono uppercase tracking-widest mb-2"
+                    style={{ color: p ? p.impactLabel : "var(--metric-l)" }}>
                     {labels.impact}
                   </p>
-                  <p className="text-sm leading-relaxed" style={{ color: p ? p.impactText : "var(--metric-t)" }}>
+                  <p className="text-sm leading-relaxed"
+                    style={{ color: p ? p.impactText : "var(--metric-t)", lineHeight: 1.75 }}>
                     {project.impact}
                   </p>
                 </div>
@@ -213,15 +222,24 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="px-6 py-24 border-t transition-colors duration-200" style={{ borderColor: "var(--border)" }}>
+    <section
+      id="projects"
+      className="px-6 py-28 border-t transition-colors duration-200"
+      style={{ borderColor: "var(--border)" }}
+    >
       <div className="max-w-6xl mx-auto">
         <SectionLabel>{t("label")}</SectionLabel>
-        <h2 className="font-bold leading-tight mb-14" style={{ fontSize: "clamp(28px, 3.5vw, 48px)", color: "var(--text-1)" }}>
+        <h2
+          className="font-bold leading-tight mb-12"
+          style={{ fontSize: "clamp(28px, 3.8vw, 52px)", color: "var(--text-1)" }}
+        >
           {t("headline")}
           <br />
-          <span style={{ color: "var(--text-3)", fontSize: "0.85em" }}>{t("headlineSub")}</span>
+          <span style={{ color: "var(--text-3)", fontSize: "0.8em", fontWeight: 500 }}>
+            {t("headlineSub")}
+          </span>
         </h2>
-        <div className="grid gap-6">
+        <div className="grid gap-5">
           {items.map((project, i) => (
             <ProjectCard
               key={i}

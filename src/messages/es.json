@@ -16,6 +16,13 @@
     "line2": "Especialista en CRO.",
     "line3": "Constructor de Revenue.",
     "subheadline": "Combino ejecución técnica con ciencia de conversión para construir experiencias de e-commerce que aumentan los ingresos — no solo el tráfico.",
+    "available": "Abierto a oportunidades remotas",
+    "kpi1": "+140%",
+    "kpi1Label": "mejora en CVR",
+    "kpi2": "4+",
+    "kpi2Label": "experimentos / semana",
+    "kpi3": "20+",
+    "kpi3Label": "herramientas construidas",
     "badge1": "8+ años de experiencia",
     "badge2": "CVR de 0.5% a 1.2%",
     "badge3": "4+ pruebas A/B por semana",
@@ -37,7 +44,15 @@
     "fact3": "Trabajo Remoto",
     "fact4": "Especialista en Shopify",
     "fact5": "CRO y Experimentación",
-    "fact6": "8+ Años de Experiencia"
+    "fact6": "8+ Años de Experiencia",
+    "statValue1": "8+",
+    "statLabel1": "años construyendo\npara la web",
+    "statValue2": "+140%",
+    "statLabel2": "mejor mejora\nen CVR",
+    "statValue3": "4+",
+    "statLabel3": "experimentos\npor semana",
+    "statValue4": "20+",
+    "statLabel4": "herramientas\nconstruidas"
   },
   "impact": {
     "label": "Logros",
@@ -47,6 +62,12 @@
     "actionsLabel": "Acciones",
     "techLabel": "Tecnologías",
     "impactLabel": "Impacto",
+    "aggrStat1": "140%",
+    "aggrStat1Label": "Pico de mejora CVR",
+    "aggrStat2": "4+",
+    "aggrStat2Label": "experimentos / semana",
+    "aggrStat3": "20+",
+    "aggrStat3Label": "herramientas internas",
     "highlights": [
       {
         "title": "Tasa de Conversión Duplicada: de 0.5% a 1.2%",
@@ -264,6 +285,14 @@
     "headlineSub": "Especialización en E-Commerce. Fluencia en Negocio.",
     "categories": [
       {
+        "name": "E-Commerce y CRO",
+        "items": ["Shopify OS 2.0", "Liquid", "Intelligems", "A/B Testing", "Optimización de Conversión", "Core Web Vitals"]
+      },
+      {
+        "name": "Métodos y Prácticas",
+        "items": ["Agile / Scrum", "Desarrollo asistido por IA", "Optimización de Rendimiento", "Análisis de Datos", "Liderazgo Técnico"]
+      },
+      {
         "name": "Lenguajes",
         "items": ["TypeScript", "JavaScript", "PHP", "Java", "HTML", "CSS"]
       },
@@ -272,24 +301,16 @@
         "items": ["React", "React Native", "Next.js", "Vue.js", "Spring Boot", "Laravel", "ExtJS"]
       },
       {
-        "name": "E-Commerce y CRO",
-        "items": ["Shopify OS 2.0", "Liquid", "Intelligems", "A/B Testing", "Optimización de Conversión", "Core Web Vitals"]
+        "name": "Arquitectura e Integración",
+        "items": ["Microservicios", "APIs RESTful", "CI/CD básico"]
       },
       {
         "name": "Bases de Datos",
         "items": ["MySQL", "PostgreSQL", "SQL Server", "Oracle"]
       },
       {
-        "name": "Arquitectura e Integración",
-        "items": ["Microservicios", "APIs RESTful", "CI/CD básico"]
-      },
-      {
         "name": "Cloud y Herramientas",
         "items": ["Google Cloud", "Google Workspace Admin", "Git", "Pruebas Automatizadas"]
-      },
-      {
-        "name": "Métodos y Prácticas",
-        "items": ["Agile / Scrum", "Desarrollo asistido por IA", "Optimización de Rendimiento", "Análisis de Datos", "Liderazgo Técnico"]
       },
       {
         "name": "Sistemas Operativos",

@@ -80,18 +80,25 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map(({ key, href }) => (
-              <a
-                key={key}
-                href={href}
-                className="nav-link text-sm transition-colors duration-200"
-                style={{
-                  color: activeSection === href.slice(1) ? "var(--text-1)" : undefined,
-                }}
-              >
-                {t(key)}
-              </a>
-            ))}
+            {navLinks.map(({ key, href }) => {
+              const isActive = activeSection === href.slice(1);
+              return (
+                <a
+                  key={key}
+                  href={href}
+                  className="nav-link text-sm relative pb-1 transition-colors duration-200"
+                  style={{ color: isActive ? "var(--text-1)" : undefined }}
+                >
+                  {t(key)}
+                  {isActive && (
+                    <span
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                      style={{ backgroundColor: "var(--accent)" }}
+                    />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Right controls */}

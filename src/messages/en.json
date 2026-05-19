@@ -16,6 +16,13 @@
     "line2": "CRO Specialist.",
     "line3": "Revenue Builder.",
     "subheadline": "I combine technical execution with conversion science to build e-commerce experiences that grow revenue — not just traffic.",
+    "available": "Open to remote opportunities",
+    "kpi1": "+140%",
+    "kpi1Label": "CVR uplift achieved",
+    "kpi2": "4+",
+    "kpi2Label": "experiments / week",
+    "kpi3": "20+",
+    "kpi3Label": "tools built in-house",
     "badge1": "8+ years of experience",
     "badge2": "CVR 0.5% → 1.2%",
     "badge3": "4+ A/B tests/week",
@@ -37,7 +44,15 @@
     "fact3": "Remote-Ready",
     "fact4": "Shopify Specialist",
     "fact5": "CRO & Experimentation",
-    "fact6": "8+ Years Experience"
+    "fact6": "8+ Years Experience",
+    "statValue1": "8+",
+    "statLabel1": "years building\nfor the web",
+    "statValue2": "+140%",
+    "statLabel2": "peak CVR\nlift",
+    "statValue3": "4+",
+    "statLabel3": "experiments\nper week",
+    "statValue4": "20+",
+    "statLabel4": "tools\nshipped"
   },
   "impact": {
     "label": "Impact",
@@ -47,6 +62,12 @@
     "actionsLabel": "Actions",
     "techLabel": "Technologies",
     "impactLabel": "Impact",
+    "aggrStat1": "140%",
+    "aggrStat1Label": "Peak CVR lift",
+    "aggrStat2": "4+",
+    "aggrStat2Label": "experiments / week",
+    "aggrStat3": "20+",
+    "aggrStat3Label": "internal tools shipped",
     "highlights": [
       {
         "title": "Conversion Rate Doubled: From 0.5% to 1.2%",
@@ -264,6 +285,14 @@
     "headlineSub": "E-Commerce Specialization. Business Fluency.",
     "categories": [
       {
+        "name": "E-Commerce & CRO",
+        "items": ["Shopify OS 2.0", "Liquid", "Intelligems", "A/B Testing", "Conversion Rate Optimization", "Core Web Vitals"]
+      },
+      {
+        "name": "Methods & Practices",
+        "items": ["Agile / Scrum", "AI-assisted development", "Performance Optimization", "Data Analysis", "Technical Leadership"]
+      },
+      {
         "name": "Languages",
         "items": ["TypeScript", "JavaScript", "PHP", "Java", "HTML", "CSS"]
       },
@@ -272,24 +301,16 @@
         "items": ["React", "React Native", "Next.js", "Vue.js", "Spring Boot", "Laravel", "ExtJS"]
       },
       {
-        "name": "E-Commerce & CRO",
-        "items": ["Shopify OS 2.0", "Liquid", "Intelligems", "A/B Testing", "Conversion Rate Optimization", "Core Web Vitals"]
+        "name": "Architecture & Integration",
+        "items": ["Microservices", "RESTful APIs", "CI/CD basics"]
       },
       {
         "name": "Databases",
         "items": ["MySQL", "PostgreSQL", "SQL Server", "Oracle"]
       },
       {
-        "name": "Architecture & Integration",
-        "items": ["Microservices", "RESTful APIs", "CI/CD basics"]
-      },
-      {
         "name": "Cloud & Tooling",
         "items": ["Google Cloud", "Google Workspace Admin", "Git", "Automated Testing"]
-      },
-      {
-        "name": "Methods & Practices",
-        "items": ["Agile / Scrum", "AI-assisted development", "Performance Optimization", "Data Analysis", "Technical Leadership"]
       },
       {
         "name": "Operating Systems",
