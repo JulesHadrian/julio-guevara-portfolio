@@ -23,7 +23,7 @@ interface Parsed {
  * Returns null for values with no leading number ("Core Web Vitals", "Zero", "A/B").
  */
 function parseValue(raw: string): Parsed | null {
-  const m = raw.match(/^(\D*?)(\d[\d.,]*)(.*)$/s);
+  const m = raw.match(/^(\D*?)(\d[\d.,]*)(.*)$/);
   if (!m) return null;
   const [, prefix, numStr, suffix] = m;
   const grouped = numStr.includes(",");
