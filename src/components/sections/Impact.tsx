@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SkillTag from "@/components/ui/SkillTag";
+import Reveal from "@/components/ui/Reveal";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 
 interface Highlight {
   title: string;
@@ -42,12 +45,11 @@ function ImpactItem({
         >
           {String(index + 1).padStart(2, "0")}
         </span>
-        <span
+        <AnimatedCounter
+          value={highlight.metric}
           className="font-bold font-mono leading-none shrink-0"
           style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--accent)" }}
-        >
-          {highlight.metric}
-        </span>
+        />
         <span
           className="text-xs font-mono leading-snug"
           style={{ color: "var(--metric-l)" }}
@@ -94,32 +96,39 @@ function ImpactItem({
             transition={{ duration: 0.25, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <div className="space-y-5 mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
-              <div>
+            <Stagger
+              trigger="mount"
+              className="space-y-5 mt-6 pt-6 border-t"
+              style={{ borderColor: "var(--border)" }}
+              stagger={0.07}
+              delayChildren={0.1}
+            >
+              <StaggerItem distance={10}>
                 <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
                   {labels.context}
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)", lineHeight: 1.75 }}>
                   {highlight.context}
                 </p>
-              </div>
-              <div>
+              </StaggerItem>
+              <StaggerItem distance={10}>
                 <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
                   {labels.actions}
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)", lineHeight: 1.75 }}>
                   {highlight.actions}
                 </p>
-              </div>
-              <div>
+              </StaggerItem>
+              <StaggerItem distance={10}>
                 <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>
                   {labels.tech}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {highlight.tech.map((item) => <SkillTag key={item}>{item}</SkillTag>)}
                 </div>
-              </div>
-              <div
+              </StaggerItem>
+              <StaggerItem
+                distance={10}
                 className="rounded-lg p-5 border-l-2"
                 style={{ backgroundColor: "var(--metric-bg)", borderLeftColor: "var(--metric)" }}
               >
@@ -129,8 +138,8 @@ function ImpactItem({
                 <p className="text-sm leading-relaxed" style={{ color: "var(--metric-t)", lineHeight: 1.75 }}>
                   {highlight.impact}
                 </p>
-              </div>
-            </div>
+              </StaggerItem>
+            </Stagger>
           </motion.div>
         )}
       </AnimatePresence>
@@ -163,49 +172,52 @@ export default function Impact() {
       <div className="max-w-6xl mx-auto">
 
         {/* ── Section header ───────────────────────────────────────────── */}
-        <SectionLabel>{t("label")}</SectionLabel>
+        <Reveal>
+          <SectionLabel>{t("label")}</SectionLabel>
 
-        <div className="md:flex md:items-end md:justify-between gap-10 mb-4">
-          <div>
-            <h2
-              className="font-bold leading-tight"
-              style={{ fontSize: "clamp(28px, 3.8vw, 52px)", color: "var(--text-1)" }}
-            >
-              {t("headline")}
-            </h2>
-            <p
-              className="max-w-2xl mt-4"
-              style={{ color: "var(--text-3)", fontSize: "0.9375rem", lineHeight: 1.75 }}
-            >
-              {t("intro")}
-            </p>
-          </div>
+          <div className="md:flex md:items-end md:justify-between gap-10 mb-4">
+            <div>
+              <h2
+                className="font-bold leading-tight"
+                style={{ fontSize: "clamp(28px, 3.8vw, 52px)", color: "var(--text-1)" }}
+              >
+                {t("headline")}
+              </h2>
+              <p
+                className="max-w-2xl mt-4"
+                style={{ color: "var(--text-3)", fontSize: "0.9375rem", lineHeight: 1.75 }}
+              >
+                {t("intro")}
+              </p>
+            </div>
 
-          {/* Aggregate proof numbers */}
-          <div className="flex flex-wrap gap-6 sm:gap-10 mt-8 md:mt-0 shrink-0">
-            {aggrStats.map(({ value, label }, i) => (
-              <div key={i}>
-                <p
-                  className="font-bold font-mono leading-none"
-                  style={{ fontSize: "clamp(22px, 2.5vw, 32px)", color: "var(--metric)" }}
-                >
-                  {value}
-                </p>
-                <p
-                  className="text-xs mt-2 font-mono uppercase tracking-widest"
-                  style={{ color: "var(--text-4)" }}
-                >
-                  {label}
-                </p>
-              </div>
-            ))}
+            {/* Aggregate proof numbers */}
+            <div className="flex flex-wrap gap-6 sm:gap-10 mt-8 md:mt-0 shrink-0">
+              {aggrStats.map(({ value, label }, i) => (
+                <div key={i}>
+                  <AnimatedCounter
+                    value={value}
+                    className="block font-bold font-mono leading-none"
+                    style={{ fontSize: "clamp(22px, 2.5vw, 32px)", color: "var(--metric)" }}
+                  />
+                  <p
+                    className="text-xs mt-2 font-mono uppercase tracking-widest"
+                    style={{ color: "var(--text-4)" }}
+                  >
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* ── Editorial numbered list ───────────────────────────────────── */}
         <div>
           {highlights.map((h, i) => (
-            <ImpactItem key={i} highlight={h} labels={labels} index={i} />
+            <Reveal key={i}>
+              <ImpactItem highlight={h} labels={labels} index={i} />
+            </Reveal>
           ))}
           {/* Bottom border */}
           <div className="border-t" style={{ borderColor: "var(--border)" }} />

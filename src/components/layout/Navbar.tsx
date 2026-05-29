@@ -91,9 +91,11 @@ export default function Navbar() {
                 >
                   {t(key)}
                   {isActive && (
-                    <span
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute left-0 right-0 -bottom-0.5 h-px rounded-full"
                       style={{ backgroundColor: "var(--accent)" }}
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
                     />
                   )}
                 </a>

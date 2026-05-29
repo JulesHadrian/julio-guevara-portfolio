@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SkillTag from "@/components/ui/SkillTag";
+import Reveal from "@/components/ui/Reveal";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 
 interface Project {
   title: string;
@@ -69,12 +72,12 @@ function StatsRow({ project }: { project: Project }) {
         <StatusBadge status={project.status!} statusLabel={project.statusLabel!} />
         <div className="w-px h-4 self-center" style={{ backgroundColor: "var(--border)" }} />
         <div>
-          <p className="text-xl font-bold font-mono" style={{ color: "var(--text-3)" }}>{project.stat1}</p>
+          <AnimatedCounter value={project.stat1} className="block text-xl font-bold font-mono" style={{ color: "var(--text-3)" }} />
           <p className="text-xs mt-0.5" style={{ color: "var(--text-4)" }}>{project.stat1Label}</p>
         </div>
         <div className="w-px h-4 self-center" style={{ backgroundColor: "var(--border)" }} />
         <div>
-          <p className="text-xl font-bold font-mono" style={{ color: p.dot }}>{project.stat2}</p>
+          <AnimatedCounter value={project.stat2} className="block text-xl font-bold font-mono" style={{ color: p.dot }} />
           <p className="text-xs mt-0.5" style={{ color: "var(--text-3)" }}>{project.stat2Label}</p>
         </div>
       </div>
@@ -84,17 +87,17 @@ function StatsRow({ project }: { project: Project }) {
   return (
     <div className="flex flex-wrap gap-6 mb-5">
       <div>
-        <p className="text-2xl font-bold font-mono" style={{ color: "var(--metric)" }}>{project.metric}</p>
+        <AnimatedCounter value={project.metric} className="block text-2xl font-bold font-mono" style={{ color: "var(--metric)" }} />
         <p className="text-xs mt-0.5" style={{ color: "var(--metric-l)" }}>{project.metricLabel}</p>
       </div>
       <div className="w-px self-stretch" style={{ backgroundColor: "var(--border)" }} />
       <div>
-        <p className="text-xl font-bold font-mono" style={{ color: "var(--text-3)" }}>{project.stat1}</p>
+        <AnimatedCounter value={project.stat1} className="block text-xl font-bold font-mono" style={{ color: "var(--text-3)" }} />
         <p className="text-xs mt-0.5" style={{ color: "var(--text-4)" }}>{project.stat1Label}</p>
       </div>
       <span style={{ color: "var(--border-strong)", display: "flex", alignItems: "center" }}>→</span>
       <div>
-        <p className="text-xl font-bold font-mono" style={{ color: "var(--text-1)" }}>{project.stat2}</p>
+        <AnimatedCounter value={project.stat2} className="block text-xl font-bold font-mono" style={{ color: "var(--text-1)" }} />
         <p className="text-xs mt-0.5" style={{ color: "var(--text-3)" }}>{project.stat2Label}</p>
       </div>
     </div>
@@ -118,7 +121,7 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
 
   return (
     <div
-      className="rounded-xl border transition-colors duration-200 overflow-hidden"
+      className="card-glow rounded-xl border overflow-hidden"
       style={{
         backgroundColor: "var(--surface)",
         borderColor: expanded ? accentColor : hovered ? "var(--border-strong)" : "var(--border)",
@@ -169,22 +172,29 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
               transition={{ duration: 0.25, ease: "easeInOut" }}
               style={{ overflow: "hidden" }}
             >
-              <div className="space-y-5 mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
-                <div>
+              <Stagger
+                trigger="mount"
+                className="space-y-5 mt-6 pt-6 border-t"
+                style={{ borderColor: "var(--border)" }}
+                stagger={0.07}
+                delayChildren={0.1}
+              >
+                <StaggerItem distance={10}>
                   <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.context}</p>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)", lineHeight: 1.75 }}>{project.context}</p>
-                </div>
-                <div>
+                </StaggerItem>
+                <StaggerItem distance={10}>
                   <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.actions}</p>
                   <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)", lineHeight: 1.75 }}>{project.actions}</p>
-                </div>
-                <div>
+                </StaggerItem>
+                <StaggerItem distance={10}>
                   <p className="text-xs font-mono uppercase tracking-widest mb-2" style={{ color: "var(--text-4)" }}>{labels.tech}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((item) => <SkillTag key={item}>{item}</SkillTag>)}
                   </div>
-                </div>
-                <div
+                </StaggerItem>
+                <StaggerItem
+                  distance={10}
                   className="rounded-lg p-5 border-l-2"
                   style={{
                     backgroundColor: p ? p.impactBg : "var(--metric-bg)",
@@ -199,8 +209,8 @@ function ProjectCard({ project, labels, expandLabel, collapseLabel }: {
                     style={{ color: p ? p.impactText : "var(--metric-t)", lineHeight: 1.75 }}>
                     {project.impact}
                   </p>
-                </div>
-              </div>
+                </StaggerItem>
+              </Stagger>
             </motion.div>
           )}
         </AnimatePresence>
@@ -228,26 +238,29 @@ export default function Projects() {
       style={{ borderColor: "var(--border)" }}
     >
       <div className="max-w-6xl mx-auto">
-        <SectionLabel>{t("label")}</SectionLabel>
-        <h2
-          className="font-bold leading-tight mb-12"
-          style={{ fontSize: "clamp(28px, 3.8vw, 52px)", color: "var(--text-1)" }}
-        >
-          {t("headline")}
-          <br />
-          <span style={{ color: "var(--text-3)", fontSize: "0.8em", fontWeight: 500 }}>
-            {t("headlineSub")}
-          </span>
-        </h2>
+        <Reveal>
+          <SectionLabel>{t("label")}</SectionLabel>
+          <h2
+            className="font-bold leading-tight mb-12"
+            style={{ fontSize: "clamp(28px, 3.8vw, 52px)", color: "var(--text-1)" }}
+          >
+            {t("headline")}
+            <br />
+            <span style={{ color: "var(--text-3)", fontSize: "0.8em", fontWeight: 500 }}>
+              {t("headlineSub")}
+            </span>
+          </h2>
+        </Reveal>
         <div className="grid gap-5">
           {items.map((project, i) => (
-            <ProjectCard
-              key={i}
-              project={project}
-              labels={labels}
-              expandLabel={t("expandLabel")}
-              collapseLabel={t("collapseLabel")}
-            />
+            <Reveal key={i}>
+              <ProjectCard
+                project={project}
+                labels={labels}
+                expandLabel={t("expandLabel")}
+                collapseLabel={t("collapseLabel")}
+              />
+            </Reveal>
           ))}
         </div>
       </div>

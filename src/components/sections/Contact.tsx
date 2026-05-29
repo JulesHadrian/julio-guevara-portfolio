@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useState } from "react";
 import { Mail, ExternalLink, Download } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import Reveal from "@/components/ui/Reveal";
 import { siteConfig } from "@/lib/config";
 
 const inputStyle: React.CSSProperties = {
@@ -77,7 +78,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16">
           {/* Left */}
-          <div>
+          <Reveal>
             <SectionLabel>{t("label")}</SectionLabel>
             <h2 className="font-bold leading-tight mb-5" style={{ fontSize: "clamp(28px, 3.5vw, 48px)", color: "var(--text-1)" }}>
               {t("headline")}
@@ -122,10 +123,10 @@ export default function Contact() {
                 {t("downloadResume")}
               </a>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: Form */}
-          <div>
+          <Reveal delay={0.08}>
             <form onSubmit={handleSubmit} className="space-y-5">
               <Field id="contact-name"    label={t("nameLabel")}    type="text"  required value={form.name}    onChange={(e) => setForm({ ...form, name:    (e.target as HTMLInputElement).value    })} placeholder={t("namePlaceholder")}    />
               <Field id="contact-email"   label={t("emailLabel")}   type="email" required value={form.email}   onChange={(e) => setForm({ ...form, email:   (e.target as HTMLInputElement).value    })} placeholder={t("emailPlaceholder")}   />
@@ -142,7 +143,7 @@ export default function Contact() {
                 {status === "sending" ? t("sending") : t("submitBtn")} →
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

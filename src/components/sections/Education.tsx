@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { GraduationCap } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import Reveal from "@/components/ui/Reveal";
 
 export default function Education() {
   const t = useTranslations("education");
@@ -14,10 +15,13 @@ export default function Education() {
       style={{ borderColor: "var(--border)" }}
     >
       <div className="max-w-6xl mx-auto">
-        <SectionLabel>{t("label")}</SectionLabel>
-        <div
-          className="rounded-xl border p-8 max-w-xl transition-colors duration-200"
+        <Reveal>
+          <SectionLabel>{t("label")}</SectionLabel>
+        </Reveal>
+        <Reveal
+          className="card-glow rounded-xl border p-8 max-w-xl"
           style={{ backgroundColor: "var(--surface)", borderColor: "var(--border)" }}
+          delay={0.05}
         >
           <div className="flex items-start gap-5">
             <div
@@ -39,7 +43,7 @@ export default function Education() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

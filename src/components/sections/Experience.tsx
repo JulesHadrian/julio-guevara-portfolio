@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import SectionLabel from "@/components/ui/SectionLabel";
+import Reveal from "@/components/ui/Reveal";
 
 interface Role {
   title: string;
@@ -22,23 +23,25 @@ export default function Experience() {
       style={{ borderColor: "var(--border)" }}
     >
       <div className="max-w-6xl mx-auto">
-        <SectionLabel>{t("label")}</SectionLabel>
-        <h2
-          className="font-bold leading-tight mb-12"
-          style={{ fontSize: "clamp(28px, 3.8vw, 52px)", color: "var(--text-1)" }}
-        >
-          {t("headline")}
-          <br />
-          <span style={{ color: "var(--text-3)", fontSize: "0.8em", fontWeight: 500 }}>
-            {t("headlineSub")}
-          </span>
-        </h2>
+        <Reveal>
+          <SectionLabel>{t("label")}</SectionLabel>
+          <h2
+            className="font-bold leading-tight mb-12"
+            style={{ fontSize: "clamp(28px, 3.8vw, 52px)", color: "var(--text-1)" }}
+          >
+            {t("headline")}
+            <br />
+            <span style={{ color: "var(--text-3)", fontSize: "0.8em", fontWeight: 500 }}>
+              {t("headlineSub")}
+            </span>
+          </h2>
+        </Reveal>
 
         <div>
           {roles.map((role, i) => (
-            <div
+            <Reveal
               key={i}
-              className="border-t py-10 md:grid md:gap-10 transition-colors duration-200"
+              className="border-t py-10 md:grid md:gap-10"
               style={{
                 borderColor: "var(--border)",
                 gridTemplateColumns: "200px 1fr",
@@ -112,7 +115,7 @@ export default function Experience() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </Reveal>
           ))}
           {/* Bottom border */}
           <div className="border-t" style={{ borderColor: "var(--border)" }} />

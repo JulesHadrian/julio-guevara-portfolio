@@ -15,11 +15,11 @@ html[data-theme="dark"] {
   --border:          #1F1F2E;
   --border-strong:   #2C2C42;
 
-  /* Warm cream text */
-  --text-1:          #EBE6DC;
-  --text-2:          #A8A098;
-  --text-3:          #6E675E;
-  --text-4:          #5E5248;
+  /* Warm cream text — nudged brighter for legibility */
+  --text-1:          #EFEAE0;
+  --text-2:          #B4ABA1;
+  --text-3:          #847C72;
+  --text-4:          #655B52;
 
   /* Amber / gold — the language of revenue */
   --accent:          #C8893A;
@@ -31,6 +31,7 @@ html[data-theme="dark"] {
   --accent-bg-m:     rgba(200,137,58,0.20);
   --accent-glow:     rgba(200,137,58,0.22);
   --accent-glow-h:   rgba(200,137,58,0.42);
+  --accent-glow-soft: rgba(200,137,58,0.12);
 
   /* KPIs/datos — familia ámbar, un solo matiz */
   --metric:          #E09D48;
@@ -81,8 +82,8 @@ html[data-theme="light"] {
   --border-strong:   #C8C0B4;
   --text-1:          #1A1510;
   --text-2:          #3D3530;
-  --text-3:          #7A7268;
-  --text-4:          #ADA69E;
+  --text-3:          #6B6359;
+  --text-4:          #978F86;
   --accent:          #A06820;
   --accent-h:        #C8893A;
   --accent-s:        #7A5018;
@@ -92,6 +93,7 @@ html[data-theme="light"] {
   --accent-bg-m:     rgba(160,104,32,0.16);
   --accent-glow:     rgba(160,104,32,0.15);
   --accent-glow-h:   rgba(160,104,32,0.28);
+  --accent-glow-soft: rgba(160,104,32,0.09);
   --metric:          #16A34A;
   --metric-h:        #22C55E;
   --metric-l:        #15803D;
@@ -210,6 +212,32 @@ body::before {
 /* ─── Nav link ───────────────────────────────────────────────────────────── */
 .nav-link { color: var(--text-3); transition: color 0.2s; }
 .nav-link:hover { color: var(--text-1); }
+
+/* ─── Aurora (hero ambient background) ───────────────────────────────────── */
+.aurora-layer {
+  background:
+    radial-gradient(ellipse 55% 55% at 32% 30%, var(--accent-glow) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 45% at 62% 18%, var(--accent-glow-soft) 0%, transparent 55%);
+  filter: blur(44px);
+  opacity: 0.85;
+  animation: aurora 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes aurora {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(6%, 4%, 0) scale(1.08); }
+  100% { transform: translate3d(-4%, 8%, 0) scale(1.04); }
+}
+
+/* ─── Card hover glow (sections opt in) ──────────────────────────────────── */
+.card-glow {
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+.card-glow:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 1px 0 0 var(--accent-glow-soft), 0 10px 40px -12px var(--accent-glow);
+}
 
 /* ─── Reduced motion ─────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
