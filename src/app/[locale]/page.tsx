@@ -1,31 +1,27 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import Impact from "@/components/sections/Impact";
-import Projects from "@/components/sections/Projects";
-import Experience from "@/components/sections/Experience";
-import Skills from "@/components/sections/Skills";
-import Education from "@/components/sections/Education";
-import Contact from "@/components/sections/Contact";
+import { getTranslations } from "next-intl/server";
 import JsonLd from "@/components/JsonLd";
+import SynapseHero from "@/components/home/SynapseHero";
+import KeywordMarquee from "@/components/layout/KeywordMarquee";
+import ManifestoTeaser from "@/components/home/ManifestoTeaser";
+import FeaturedWorks from "@/components/home/FeaturedWorks";
+import Pillars from "@/components/home/Pillars";
+import Process from "@/components/home/Process";
+import FinalCta from "@/components/home/FinalCta";
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations("home");
+  const keywords = t.raw("keywords") as string[];
+
   return (
     <>
       <JsonLd />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Impact />
-        <Projects />
-        <Experience />
-        <Skills />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
+      <SynapseHero />
+      <KeywordMarquee keywords={keywords} />
+      <ManifestoTeaser />
+      <FeaturedWorks />
+      <Pillars />
+      <Process />
+      <FinalCta />
     </>
   );
 }

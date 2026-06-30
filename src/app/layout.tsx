@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const interTight = Inter_Tight({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -19,25 +25,15 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-// Runs synchronously before React hydrates — prevents flash of wrong theme
-const themeScript = `(function(){try{var s=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',s||(d?'dark':'light'));}catch(e){}})();`;
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      lang="en"
+      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="antialiased">
-        {/* beforeInteractive: injected into <head> and executed before hydration
-            (and before paint) so the theme is set with no flash. */}
-        <Script id="theme-init" strategy="beforeInteractive">
-          {themeScript}
-        </Script>
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

@@ -1,15 +1,130 @@
 {
   "nav": {
-    "about": "About",
-    "impact": "Impact",
-    "projects": "Projects",
-    "experience": "Experience",
-    "skills": "Skills",
+    "home": "Home",
+    "manifesto": "Manifesto",
+    "archive": "Archive",
     "contact": "Contact",
+    "contactCta": "Let's talk",
+    "contactMe": "Contact me",
+    "skipToContent": "Skip to content",
     "downloadResume": "Download Resume",
     "switchLang": "ES",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
+  },
+  "preloader": {
+    "tagline": "Growth Engineering Atelier"
+  },
+  "home": {
+    "heroCtaPrimary": "Let's talk funnel",
+    "heroCtaSecondary": "View case studies",
+    "heroMetricContext": "Shopify store · 2023–2024",
+    "scrollCue": "Scroll to explore",
+    "keywords": ["Engineering", "CRO", "Analytics", "Experiments", "UX", "Performance", "Shopify", "Revenue"],
+    "manifestoLabel": "Manifesto",
+    "manifestoLines": [
+      "Every interface is a hypothesis.",
+      "Every interaction is a signal.",
+      "Every release should teach something.",
+      "Traffic is not the goal — conversion is.",
+      "I build software that can be measured.",
+      "And optimize what the data tells me to.",
+      "Growth is engineering, not luck."
+    ],
+    "manifestoCta": "Read the manifesto",
+    "worksLabel": "Selected Work",
+    "worksTitle": "Case studies.",
+    "worksCta": "View all",
+    "worksPrev": "Previous work",
+    "worksNext": "Next work",
+    "worksDrag": "Drag",
+    "projectCta": "Case study",
+    "pillarsLabel": "Capabilities",
+    "pillarsTitle": "Build. Optimize. Measure.",
+    "pillarsIntro": "Three disciplines, one system: software that ships, funnels that convert, and decisions backed by data.",
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Build",
+        "description": "Robust, performant software — custom-built to replace rigid vendor tools and move fast.",
+        "deliverables": ["Custom Shopify themes & sections", "Internal tools & automations", "APIs & marketplace integrations"],
+        "tags": ["TypeScript", "Next.js", "Shopify OS 2.0", "Liquid", "Node.js"]
+      },
+      {
+        "number": "02",
+        "title": "Optimize",
+        "description": "I find and remove conversion friction — from PDP to checkout — and test my way to lift.",
+        "deliverables": ["Funnel & UX audits", "A/B test design & build", "Landing & PDP optimization"],
+        "tags": ["CRO", "Intelligems", "A/B Testing", "Core Web Vitals", "UX"]
+      },
+      {
+        "number": "03",
+        "title": "Measure",
+        "description": "I turn decisions into data — instrument every interaction and read the business impact.",
+        "deliverables": ["Event & funnel instrumentation", "Experiment analysis", "Reporting dashboards"],
+        "tags": ["GA4", "GTM", "dataLayer", "Analytics", "Looker"]
+      }
+    ],
+    "processLabel": "Method",
+    "processTitle": "How I work.",
+    "processIntro": "A lean experimentation loop that turns ideas into shipped, measured outcomes.",
+    "process": [
+      { "title": "Diagnose", "result": "Map the funnel, find the friction." },
+      { "title": "Hypothesize", "result": "Frame a testable bet with ICE scoring." },
+      { "title": "Build", "result": "Ship the variant — lean, fast, instrumented." },
+      { "title": "Test", "result": "Run to statistical significance." },
+      { "title": "Learn", "result": "Read the data, keep or kill, iterate." }
+    ],
+    "finalCtaLabel": "Let's talk",
+    "finalCtaTitle": "Traffic, but not the conversion you expected?",
+    "finalCtaText": "Let's turn your site into a learning system that compounds — measurable growth, not guesswork.",
+    "finalCtaPrimary": "Let's talk funnel"
+  },
+  "manifesto": {
+    "label": "Manifesto",
+    "metaTitle": "Manifesto — Julio Guevara",
+    "metaDescription": "How I work: a growth engineering philosophy — build, optimize and measure digital experiences.",
+    "principlesLabel": "Principles",
+    "principlesTitle": "How I think about the work.",
+    "capabilitiesLabel": "Capabilities",
+    "principles": [
+      { "title": "Outcomes over output", "text": "Shipping features is easy. Moving a business metric is the job." },
+      { "title": "Measure everything", "text": "If it can't be measured, it can't be improved — or defended." },
+      { "title": "Lean velocity", "text": "Speed of iteration beats process for its own sake." },
+      { "title": "Own the stack", "text": "Replace rigid vendor tools with software you control." },
+      { "title": "Test, don't guess", "text": "Every change is a hypothesis until the data agrees." },
+      { "title": "Build to last", "text": "Performance, accessibility and clean architecture are features." }
+    ]
+  },
+  "archive": {
+    "label": "Archive",
+    "title": "Selected work & case studies.",
+    "intro": "Custom systems, CRO programs and experiments — each with a problem, an intervention and a measurable outcome.",
+    "count": "{count} case studies",
+    "allFilter": "All",
+    "projectCta": "Case study",
+    "viewCursor": "View",
+    "metaTitle": "Archive — Julio Guevara",
+    "metaDescription": "Case studies in software engineering, CRO and Shopify — problem, intervention and measurable impact."
+  },
+  "caseStudy": {
+    "backToArchive": "Back to archive",
+    "nextProject": "Next case study",
+    "viewCursor": "View",
+    "metaType": "Type",
+    "metaYear": "Year",
+    "metaRole": "Role",
+    "metaResult": "Result",
+    "contextLabel": "Context",
+    "actionsLabel": "Intervention",
+    "techLabel": "Stack",
+    "impactLabel": "Result",
+    "roles": {
+      "lead": "Lead Developer & CRO",
+      "fullstack": "Full-Stack Developer",
+      "cro": "CRO & Experimentation Lead",
+      "lead-eng": "Engineering Lead"
+    }
   },
   "hero": {
     "line1": "Software Engineer.",
@@ -343,6 +458,12 @@
     "errorMsg": "Something went wrong. Please try again or email me directly."
   },
   "footer": {
-    "built": "Built with Next.js & Tailwind"
+    "ctaLabel": "Have a project?",
+    "ctaHeadline": "Let's build something worth measuring.",
+    "colNavigate": "Navigate",
+    "colContact": "Contact",
+    "colAvailability": "Availability",
+    "availability": "Open to remote roles & collaborations. Currently building CRO systems at High Street.",
+    "built": "Built with Next.js & Tailwind."
   }
 }
