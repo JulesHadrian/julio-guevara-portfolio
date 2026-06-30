@@ -22,6 +22,7 @@ export default function WorksCarousel({ cards, locale, cta, prevLabel, nextLabel
   const track = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const [maxDrag, setMaxDrag] = useState(0);
+  const dragged = useRef(false);
 
   const measure = useCallback(() => {
     if (!viewport.current || !track.current) return;
@@ -57,16 +58,22 @@ export default function WorksCarousel({ cards, locale, cta, prevLabel, nextLabel
       <div ref={viewport} className="overflow-hidden">
         <motion.div
           ref={track}
-          className="flex gap-5 cursor-grab active:cursor-grabbing"
+          className="flex gap-5 cursor-grab active:cursor-grabbing select-none"
           data-cursor={dragHint}
           style={{ x }}
           drag="x"
           dragConstraints={{ left: -maxDrag, right: 0 }}
           dragElastic={0.08}
-          onDragEnd={measure}
+          onPointerDownCapture={() => { dragged.current = false; }}
+          onDragStart={() => { dragged.current = true; }}
+          onDragEnd={() => { measure(); }}
+          onClickCapture={(e) => {
+            // Swallow the click that follows a drag so cards don't navigate.
+            if (dragged.current) { e.preventDefault(); e.stopPropagation(); dragged.current = false; }
+          }}
         >
           {cards.map((data) => (
-            <div key={data.slug} className="w-[290px] sm:w-[360px] shrink-0">
+            <div key={data.slug} draggable={false} className="w-[290px] sm:w-[360px] shrink-0">
               <ProjectCard data={data} locale={locale} cta={cta} />
             </div>
           ))}

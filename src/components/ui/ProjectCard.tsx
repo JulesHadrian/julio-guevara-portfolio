@@ -29,6 +29,7 @@ export default function ProjectCard({
   return (
     <Link
       href={`/${locale}/archive/${slug}`}
+      draggable={false}
       className="card-hover group flex flex-col rounded-2xl border p-6 sm:p-7 h-full"
       style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}
     >

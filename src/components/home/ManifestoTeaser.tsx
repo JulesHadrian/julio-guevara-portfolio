@@ -29,7 +29,7 @@ export default async function ManifestoTeaser() {
                 color: i % 2 === 0 ? "var(--dark-text-1)" : "var(--dark-text-3)",
               }}
             >
-              <RevealText text={line} by="word" className="block" stagger={0.03} />
+              <RevealText text={line} by="word" className="block" delay={i * 0.1} stagger={0.03} />
             </p>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Reveal from "@/components/ui/Reveal";
+import RevealText from "@/components/motion/RevealText";
 import SectionLabel from "@/components/ui/SectionLabel";
 import SkillTag from "@/components/ui/SkillTag";
 
@@ -31,12 +32,10 @@ export default async function ManifestoPage() {
         <Reveal>
           <SectionLabel index="002">{t("label")}</SectionLabel>
         </Reveal>
-        <Reveal>
-          <h1 className="font-display font-semibold tracking-[-0.03em] mb-10" style={{ fontSize: "clamp(38px, 6vw, 76px)", lineHeight: 1.0, color: "var(--text-1)" }}>
-            {ta("headline1")}<br />
-            <span style={{ color: "var(--accent-s)" }}>{ta("headline2")}</span>
-          </h1>
-        </Reveal>
+        <h1 className="font-display font-semibold tracking-[-0.03em] mb-10" style={{ fontSize: "clamp(38px, 6vw, 76px)", lineHeight: 1.0, color: "var(--text-1)" }}>
+          <RevealText text={ta("headline1")} by="word" className="block" />
+          <RevealText text={ta("headline2")} by="word" className="block" style={{ color: "var(--accent-s)" }} delay={0.15} />
+        </h1>
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-5 max-w-4xl">
           {["p1", "p2", "p3"].map((p, i) => (
             <Reveal key={p} delay={i * 0.05} className={i === 0 ? "md:col-span-2" : ""}>
@@ -53,11 +52,9 @@ export default async function ManifestoPage() {
         <Reveal>
           <SectionLabel>{t("principlesLabel")}</SectionLabel>
         </Reveal>
-        <Reveal>
-          <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
-            {t("principlesTitle")}
-          </h2>
-        </Reveal>
+        <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
+          <RevealText text={t("principlesTitle")} by="word" />
+        </h2>
         <div className="grid sm:grid-cols-2 gap-px rounded-2xl overflow-hidden border" style={{ borderColor: "var(--border)", backgroundColor: "var(--border)" }}>
           {principles.map((pr, i) => (
             <Reveal key={pr.title} delay={i * 0.04}>
@@ -78,11 +75,10 @@ export default async function ManifestoPage() {
         <Reveal>
           <SectionLabel>{te("label")}</SectionLabel>
         </Reveal>
-        <Reveal>
-          <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
-            {te("headline")} <span style={{ color: "var(--text-4)" }}>{te("headlineSub")}</span>
-          </h2>
-        </Reveal>
+        <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
+          <RevealText text={te("headline")} by="word" />{" "}
+          <RevealText text={te("headlineSub")} by="word" style={{ color: "var(--text-4)" }} delay={0.15} />
+        </h2>
         <div className="space-y-px rounded-2xl overflow-hidden border" style={{ borderColor: "var(--border)", backgroundColor: "var(--border)" }}>
           {roles.map((role, i) => (
             <Reveal key={role.company} delay={i * 0.04}>
@@ -119,11 +115,10 @@ export default async function ManifestoPage() {
         <Reveal>
           <SectionLabel>{t("capabilitiesLabel")}</SectionLabel>
         </Reveal>
-        <Reveal>
-          <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
-            {ts("headline")} <span style={{ color: "var(--text-4)" }}>{ts("headlineSub")}</span>
-          </h2>
-        </Reveal>
+        <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
+          <RevealText text={ts("headline")} by="word" />{" "}
+          <RevealText text={ts("headlineSub")} by="word" style={{ color: "var(--text-4)" }} delay={0.15} />
+        </h2>
         <div className="grid sm:grid-cols-2 gap-5">
           {categories.map((cat, i) => (
             <Reveal key={cat.name} delay={i * 0.03}>
