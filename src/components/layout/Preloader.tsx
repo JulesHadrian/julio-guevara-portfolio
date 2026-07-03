@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { animate, AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT } from "@/lib/motion";
+import { PRELOADER_SESSION_KEY, willShowPreloader } from "@/lib/preload";
 
 export default function Preloader({ tagline }: { tagline: string }) {
   const reduce = useReducedMotion();
@@ -11,10 +12,7 @@ export default function Preloader({ tagline }: { tagline: string }) {
 
   useEffect(() => {
     // Only on first visit of the session, and never with reduced motion.
-    if (reduce) return;
-    try {
-      if (sessionStorage.getItem("preloaded")) return;
-    } catch { /* private mode — show once */ }
+    if (!willShowPreloader(!!reduce)) return;
 
     let controls: ReturnType<typeof animate> | undefined;
     let holdTimer: number | undefined;
@@ -29,7 +27,7 @@ export default function Preloader({ tagline }: { tagline: string }) {
         ease: EASE_OUT,
         onUpdate: (v) => setCount(Math.round(v)),
         onComplete: () => {
-          try { sessionStorage.setItem("preloaded", "1"); } catch { /* ignore */ }
+          try { sessionStorage.setItem(PRELOADER_SESSION_KEY, "1"); } catch { /* ignore */ }
           holdTimer = window.setTimeout(() => {
             setShow(false);
             document.body.style.overflow = "";

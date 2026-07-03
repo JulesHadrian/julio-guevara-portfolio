@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowDown } from "lucide-react";
+import { PRELOADER_VISIBLE_MS, willShowPreloader } from "@/lib/preload";
 
 /** Floating keyword nodes (tech/CRO texture) and their start positions (%). */
 const WORDS = [
@@ -73,10 +74,17 @@ export default function SynapseHero() {
   const phaseRef = useRef(0);
   useEffect(() => { phaseRef.current = phase; }, [phase]);
   useEffect(() => {
-    const t1 = window.setTimeout(() => setPhase(1), 120);   // title
-    const t2 = window.setTimeout(() => setPhase(2), 1150);  // lines connect
-    const t3 = window.setTimeout(() => setPhase(3), 1550);  // keywords (soon after)
-    const t4 = window.setTimeout(() => setPhase(4), 2700);  // scroll cue (last)
+    // On a first visit the preloader sits on top of the page for a bit, during
+    // which these timers would otherwise already run to completion unseen —
+    // so the intro looked "cut short" the moment the preloader revealed the
+    // hero. Delay the whole sequence by the preloader's visible duration so
+    // it always plays out in full, whether or not the preloader shows.
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const delay = willShowPreloader(reduceMotion) ? PRELOADER_VISIBLE_MS : 0;
+    const t1 = window.setTimeout(() => setPhase(1), delay + 120);   // title
+    const t2 = window.setTimeout(() => setPhase(2), delay + 1150); // lines connect
+    const t3 = window.setTimeout(() => setPhase(3), delay + 1550); // keywords (soon after)
+    const t4 = window.setTimeout(() => setPhase(4), delay + 2700); // scroll cue (last)
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
   }, []);
 
