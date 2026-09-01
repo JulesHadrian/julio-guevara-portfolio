@@ -16,19 +16,19 @@
     "tagline": "Growth Engineering Atelier"
   },
   "home": {
-    "heroCtaPrimary": "Let's talk funnel",
+    "heroCtaPrimary": "Let's talk about your funnel",
     "heroCtaSecondary": "View case studies",
-    "heroMetricContext": "Shopify store · 2023–2024",
-    "scrollCue": "Scroll to explore",
+    "heroMetricContext": "Shopify store · 2023-2024",
+    "scrollCue": "Scroll down",
     "keywords": ["Engineering", "CRO", "Analytics", "Experiments", "UX", "Performance", "Shopify", "Revenue"],
     "manifestoLabel": "Manifesto",
     "manifestoLines": [
       "Every interface is a hypothesis.",
-      "Every interaction is a signal.",
-      "Every release should teach something.",
-      "Traffic is not the goal — conversion is.",
+      "Every interaction leaves a signal.",
+      "A release that teaches you nothing is a wasted release.",
+      "Traffic is not the goal. Conversion is.",
       "I build software that can be measured.",
-      "And optimize what the data tells me to.",
+      "Then I optimize whatever the data points at.",
       "Growth is engineering, not luck."
     ],
     "manifestoCta": "Read the manifesto",
@@ -41,71 +41,71 @@
     "projectCta": "Case study",
     "pillarsLabel": "Capabilities",
     "pillarsTitle": "Build. Optimize. Measure.",
-    "pillarsIntro": "Three disciplines, one system: software that ships, funnels that convert, and decisions backed by data.",
+    "pillarsIntro": "Three parts of the same job: ship the software, clear the friction out of the funnel, and let the numbers decide what comes next.",
     "pillars": [
       {
         "number": "01",
         "title": "Build",
-        "description": "Robust, performant software — custom-built to replace rigid vendor tools and move fast.",
+        "description": "Custom software that replaces rigid vendor tools, so a change takes an afternoon instead of a support ticket.",
         "deliverables": ["Custom Shopify themes & sections", "Internal tools & automations", "APIs & marketplace integrations"],
         "tags": ["TypeScript", "Next.js", "Shopify OS 2.0", "Liquid", "Node.js"]
       },
       {
         "number": "02",
         "title": "Optimize",
-        "description": "I find and remove conversion friction — from PDP to checkout — and test my way to lift.",
+        "description": "I look for friction between the product page and checkout, take it out, then test whether it actually paid off.",
         "deliverables": ["Funnel & UX audits", "A/B test design & build", "Landing & PDP optimization"],
         "tags": ["CRO", "Intelligems", "A/B Testing", "Core Web Vitals", "UX"]
       },
       {
         "number": "03",
         "title": "Measure",
-        "description": "I turn decisions into data — instrument every interaction and read the business impact.",
+        "description": "Every interaction gets instrumented, so decisions come out of numbers instead of opinions.",
         "deliverables": ["Event & funnel instrumentation", "Experiment analysis", "Reporting dashboards"],
         "tags": ["GA4", "GTM", "dataLayer", "Analytics", "Looker"]
       }
     ],
     "processLabel": "Method",
     "processTitle": "How I work.",
-    "processIntro": "A lean experimentation loop that turns ideas into shipped, measured outcomes.",
+    "processIntro": "A small experimentation loop that turns an idea into something shipped and measured.",
     "process": [
       { "title": "Diagnose", "result": "Map the funnel, find the friction." },
-      { "title": "Hypothesize", "result": "Frame a testable bet with ICE scoring." },
-      { "title": "Build", "result": "Ship the variant — lean, fast, instrumented." },
-      { "title": "Test", "result": "Run to statistical significance." },
-      { "title": "Learn", "result": "Read the data, keep or kill, iterate." }
+      { "title": "Hypothesize", "result": "Turn the hunch into a testable bet, scored with ICE." },
+      { "title": "Build", "result": "Ship the variant: lean, fast, instrumented." },
+      { "title": "Test", "result": "Run it until the numbers mean something." },
+      { "title": "Learn", "result": "Read the data, keep it or kill it, go again." }
     ],
     "finalCtaLabel": "Let's talk",
     "finalCtaTitle": "Traffic, but not the conversion you expected?",
-    "finalCtaText": "Let's turn your site into a learning system that compounds — measurable growth, not guesswork.",
-    "finalCtaPrimary": "Let's talk funnel"
+    "finalCtaText": "The money usually leaks somewhere nobody has looked at yet. I find those places, fix them, and show you what the fix was worth.",
+    "finalCtaPrimary": "Let's talk about your funnel"
   },
   "manifesto": {
     "label": "Manifesto",
-    "metaTitle": "Manifesto — Julio Guevara",
-    "metaDescription": "How I work: a growth engineering philosophy — build, optimize and measure digital experiences.",
+    "metaTitle": "Manifesto | Julio Guevara",
+    "metaDescription": "How I work: build the software, take the friction out of the funnel, and measure whether any of it moved the business.",
     "principlesLabel": "Principles",
     "principlesTitle": "How I think about the work.",
     "capabilitiesLabel": "Capabilities",
     "principles": [
       { "title": "Outcomes over output", "text": "Shipping features is easy. Moving a business metric is the job." },
-      { "title": "Measure everything", "text": "If it can't be measured, it can't be improved — or defended." },
-      { "title": "Lean velocity", "text": "Speed of iteration beats process for its own sake." },
-      { "title": "Own the stack", "text": "Replace rigid vendor tools with software you control." },
-      { "title": "Test, don't guess", "text": "Every change is a hypothesis until the data agrees." },
-      { "title": "Build to last", "text": "Performance, accessibility and clean architecture are features." }
+      { "title": "Measure everything", "text": "What you can't measure you can't improve, and you can't defend it in a meeting either." },
+      { "title": "Lean velocity", "text": "How fast you can iterate matters more than how tidy the process looks." },
+      { "title": "Own the stack", "text": "A rigid vendor tool becomes your ceiling. Better to build the thing and keep the keys." },
+      { "title": "Test, don't guess", "text": "Every change is a hypothesis until the data agrees with it." },
+      { "title": "Build to last", "text": "Performance, accessibility and a clean architecture are features too." }
     ]
   },
   "archive": {
     "label": "Archive",
-    "title": "Selected work & case studies.",
-    "intro": "Custom systems, CRO programs and experiments — each with a problem, an intervention and a measurable outcome.",
+    "title": "Selected work and case studies.",
+    "intro": "Custom systems, CRO programs and experiments. Each one has a problem, something I changed, and a number at the end.",
     "count": "{count} case studies",
     "allFilter": "All",
     "projectCta": "Case study",
     "viewCursor": "View",
-    "metaTitle": "Archive — Julio Guevara",
-    "metaDescription": "Case studies in software engineering, CRO and Shopify — problem, intervention and measurable impact."
+    "metaTitle": "Archive | Julio Guevara",
+    "metaDescription": "Case studies in software engineering, CRO and Shopify: the problem, what I changed, and what it moved."
   },
   "caseStudy": {
     "backToArchive": "Back to archive",
@@ -130,8 +130,8 @@
     "line1": "Software Engineer.",
     "line2": "CRO Specialist.",
     "line3": "Revenue Builder.",
-    "subheadline": "I combine technical execution with conversion science to build e-commerce experiences that grow revenue — not just traffic.",
-    "available": "Open to remote opportunities",
+    "subheadline": "I build e-commerce front ends and then keep working on them until the revenue moves, not only the traffic.",
+    "available": "Open to remote work",
     "kpi1": "+140%",
     "kpi1Label": "CVR uplift achieved",
     "kpi2": "4+",
@@ -144,16 +144,16 @@
     "badge4": "Shopify OS 2.0",
     "badge5": "Guadalajara, Mexico",
     "badge6": "Open to remote",
-    "ctaPrimary": "See My Work",
+    "ctaPrimary": "See my work",
     "ctaSecondary": "Download Resume"
   },
   "about": {
     "label": "About",
-    "headline1": "I don't just build features.",
+    "headline1": "Features are the easy part.",
     "headline2": "I build things that convert.",
-    "p1": "With over 8 years of experience across software development, e-commerce, and growth experimentation, I've built a rare hybrid skill set: I can architect a clean Shopify theme, design a statistically rigorous A/B test, and read the business impact — all in the same sprint.",
-    "p2": "My current focus is Shopify OS 2.0 performance, CRO strategy, and revenue optimization. I've led experimentation programs that consistently deliver 20–30% uplifts in winning tests, managed two developers, and built 20+ internal tools that replaced expensive vendor solutions.",
-    "p3": "I work best in lean, high-velocity environments where speed, data, and business outcomes matter more than process for process's sake. I'm comfortable with ambiguity, fluent in English, and ready to collaborate across time zones.",
+    "p1": "Over eight years I've moved between software development, e-commerce and growth experimentation, and the mix stuck: I can architect a clean Shopify theme, design an A/B test that holds up statistically, and read what it did to the business, all in the same sprint.",
+    "p2": "Right now my focus is Shopify OS 2.0 performance, CRO strategy and revenue optimization. The experimentation programs I've led land 20-30% uplifts on the tests that win. Along the way I managed two developers and built 20+ internal tools that took the place of expensive vendor software.",
+    "p3": "I work best in small, fast teams where speed, data and business outcomes matter more than process for its own sake. Ambiguity doesn't bother me, I'm fluent in English, and I'm used to working across time zones.",
     "fact1": "Guadalajara, Mexico",
     "fact2": "English / Spanish",
     "fact3": "Remote-Ready",
@@ -171,8 +171,8 @@
   },
   "impact": {
     "label": "Impact",
-    "headline": "Where Code Met Revenue",
-    "intro": "These aren't just project descriptions. They're the moments where technical decisions directly moved business metrics. Each highlight represents a problem, a solution, and a measurable outcome.",
+    "headline": "Where the code moved revenue",
+    "intro": "Every entry here starts with a problem, says what I did about it, and ends with the number it moved. These are the points where a technical decision showed up in a business metric.",
     "contextLabel": "Context",
     "actionsLabel": "Actions",
     "techLabel": "Technologies",
@@ -185,62 +185,62 @@
     "aggrStat3Label": "internal tools shipped",
     "highlights": [
       {
-        "title": "Conversion Rate Doubled: From 0.5% to 1.2%",
+        "title": "Conversion Rate from 0.5% to 1.2%",
         "tags": ["CRO", "Shopify", "Experimentation"],
-        "context": "An e-commerce store was generating traffic but bleeding conversions. The funnel had friction points at the product page, cart drawer, and checkout flow — none of them instrumented or tested systematically.",
-        "actions": "Audited the full customer journey using session data and heatmaps. Identified high-impact intervention points. Rebuilt the cart flow, redesigned product page trust signals, and implemented a rapid experimentation cadence using Intelligems — running 4+ tests per week to statistical significance.",
+        "context": "The store had traffic and was losing it at the door. Friction sat in three places (product page, cart drawer, checkout) and none of them had ever been instrumented or tested in any systematic way.",
+        "actions": "I went through the whole purchase path with session data and heatmaps, then picked the points worth attacking first. Rebuilt the cart flow, redesigned the trust signals on the product page, and set up a testing cadence in Intelligems that ran 4+ experiments a week to significance.",
         "tech": ["Shopify OS 2.0", "Liquid", "JavaScript", "Intelligems", "Core Web Vitals"],
-        "impact": "CVR increased from 0.5% to 1.2% — a 140% improvement. Winning tests consistently delivered 20–30% uplifts. Each percentage point of CVR represented significant incremental revenue at scale with no additional ad spend.",
+        "impact": "CVR went from 0.5% to 1.2%, a 140% improvement. Winning tests landed in the 20-30% range. At that traffic volume, every point of CVR was real incremental revenue with no extra ad spend.",
         "metric": "140%",
         "metricLabel": "CVR uplift"
       },
       {
         "title": "Shopify Theme Overhaul: Performance That Converts",
         "tags": ["Shopify OS 2.0", "Performance", "Architecture"],
-        "context": "A Shopify store running a legacy theme was suffering from bloated app installations, slow LCP scores, and a fragmented UX that hurt both SEO rankings and conversion rates.",
-        "actions": "Rebuilt the theme from the ground up using Shopify OS 2.0 architecture. Removed redundant third-party apps, replaced their functionality with lean custom Liquid + JavaScript components. Restructured the homepage, product pages, and cart. Optimized images, deferred non-critical scripts, and implemented lazy loading across all high-traffic templates.",
+        "context": "The store ran on a legacy theme carrying years of app installs. LCP was slow, the UX had drifted apart template by template, and both SEO and conversion were paying for it.",
+        "actions": "Rebuilt the theme from scratch on Shopify OS 2.0. Dropped the redundant third-party apps and rewrote what they did as small Liquid and JavaScript components. Restructured the homepage, product pages and cart. Optimized images, deferred the non-critical scripts, and added lazy loading on every high-traffic template.",
         "tech": ["Shopify OS 2.0", "Liquid", "JavaScript", "CSS", "Core Web Vitals", "PageSpeed Insights"],
-        "impact": "Significant improvement in Core Web Vitals scores. Measurable reduction in page load time. App cost savings from replaced vendor tools. Faster iteration cycles post-rebuild due to cleaner architecture.",
+        "impact": "Core Web Vitals improved across the board and page load came down. The apps we removed came off the monthly bill. And with a cleaner theme, shipping the next change stopped being an archaeology exercise.",
         "metric": "Core Web Vitals",
-        "metricLabel": "significantly improved"
+        "metricLabel": "back in the green"
       },
       {
         "title": "20+ Internal Tools That Replaced Vendor Software",
         "tags": ["Internal Tooling", "Automation", "Full-Stack"],
-        "context": "The team was over-reliant on expensive, rigid SaaS tools that added latency to every workflow and made A/B test iteration slow and costly.",
-        "actions": "Audited the tool stack and identified automation opportunities. Built 20+ internal tools and scripts — ranging from data pipelines that synced Shopify analytics into dashboards, to automated reporting workflows that replaced manual weekly exports.",
+        "context": "The team leaned on expensive, rigid SaaS tools. Each one added a step to a workflow, and together they made iterating on an A/B test slow and costly.",
+        "actions": "Went through the tool stack looking for what could be automated, then built the replacements: 20+ internal tools and scripts, from data pipelines that pulled Shopify analytics into dashboards to reporting jobs that killed the manual weekly export.",
         "tech": ["TypeScript", "REST APIs", "Shopify APIs", "Google Workspace", "Automation Scripting"],
-        "impact": "Reduced reliance on heavy vendor software. Freed up budget previously spent on tools. Accelerated experimentation cycles by removing manual reporting bottlenecks. The team's ability to iterate doubled within one quarter.",
+        "impact": "Less vendor software to pay for, and that budget went back into the team. Experiments moved faster once the reporting bottleneck was gone. Within a quarter the team was iterating at twice the pace.",
         "metric": "20+",
         "metricLabel": "tools built"
       },
       {
         "title": "4+ Experiments Per Week at Statistical Significance",
         "tags": ["Experimentation", "Intelligems", "Growth"],
-        "context": "Most e-commerce CRO programs run 1–2 tests per month, limiting their learning velocity. The goal was to create a testing machine that could run, evaluate, and ship winning variants fast enough to matter.",
-        "actions": "Designed a lean experimentation framework: hypothesis prioritization using ICE scoring, rapid variant prototyping using AI-assisted development, test setup and QA via Intelligems, and a post-test decision protocol that avoided zombie tests running past significance.",
+        "context": "Most e-commerce CRO programs run one or two tests a month, which is not enough to learn anything quickly. The goal was a setup that could run, read and ship winners fast enough to matter.",
+        "actions": "Built a lean framework around it: hypotheses prioritized with ICE scoring, variants prototyped fast with AI assistance, setup and QA in Intelligems, and a decision protocol after each test so nothing kept running past significance.",
         "tech": ["Intelligems", "Shopify OS 2.0", "JavaScript", "Data Analysis", "AI-assisted development"],
-        "impact": "Sustained 4+ experiments per week reaching statistical significance. The fastest learning velocity in the team's history. Winning variants consistently delivered 20–30% uplifts. The compounding effect of this cadence was material revenue growth QoQ.",
+        "impact": "4+ experiments a week, sustained, all reaching significance. That was the fastest the team had ever learned. Winners came in at 20-30%. Quarter over quarter, the compounding showed up in revenue.",
         "metric": "4+",
         "metricLabel": "experiments/week"
       },
       {
         "title": "Engineering Team Leadership: Delivery Without Bloat",
         "tags": ["Leadership", "Agile", "Delivery"],
-        "context": "Two junior developers were onboarded with no formal delivery process and inconsistent output quality. The challenge: raise their velocity and accountability without adding bureaucratic overhead.",
-        "actions": "Implemented a lightweight Agile cadence: clear ticket scoping, daily async standups, peer code reviews, and weekly retrospectives. Introduced AI-assisted development tools to accelerate their output. Defined clear ownership and delivery standards.",
+        "context": "Two junior developers joined with no delivery process and uneven output. The task was to raise their velocity and their ownership without burying anyone in ceremony.",
+        "actions": "Put in a light Agile cadence: tickets scoped clearly, async standups, peer review on every PR, a retro each week. Added AI-assisted tooling to speed up their day, and made it clear who owned what and what counted as done.",
         "tech": ["Agile/Scrum", "Code Review", "AI-assisted development", "GitHub"],
-        "impact": "Team delivery speed increased measurably. Code quality improved through consistent review cycles. Both developers grew their technical scope and ownership within 6 months. No velocity loss during onboarding period.",
+        "impact": "Delivery speed went up and stayed up. Code quality improved once review became routine. Both developers took on wider scope within six months, and onboarding them cost the team no velocity.",
         "metric": "2 devs",
-        "metricLabel": "led & mentored"
+        "metricLabel": "led and mentored"
       },
       {
         "title": "ERP Module Development: Large-Scale Production Systems",
         "tags": ["ERP", "Laravel", "ExtJS", "MySQL"],
-        "context": "A corporate ERP platform serving enterprise clients needed new feature modules without disrupting production systems running 24/7.",
-        "actions": "Built multiple production-grade ERP modules using ExtJS on the frontend and Laravel on the backend. Designed and optimized complex MySQL queries for large datasets. Maintained zero-downtime deployment practices and resolved server-side issues under pressure.",
+        "context": "A corporate ERP serving enterprise clients needed new modules, and the systems it ran on could not go down while we added them.",
+        "actions": "Built several production ERP modules with ExtJS on the front end and Laravel behind it. Designed and tuned the MySQL queries that had to work over large tables. Deployments were zero-downtime, and I handled the server-side problems when they came up.",
         "tech": ["ExtJS", "Laravel", "PHP", "MySQL", "Linux Server Administration"],
-        "impact": "Modules delivered on schedule with zero critical production incidents. Query performance improvements reduced report generation time by significant margins. Systems maintained high availability throughout the engagement.",
+        "impact": "Modules landed on schedule with no critical incidents in production. Report generation got noticeably faster after the query work. The systems stayed up for the whole engagement.",
         "metric": "Zero",
         "metricLabel": "production incidents"
       }
@@ -249,18 +249,18 @@
   "projects": {
     "label": "Projects",
     "headline": "Selected Projects.",
-    "headlineSub": "Custom-built systems that replaced vendor software and delivered measurable results.",
+    "headlineSub": "Systems I built to replace vendor software, with the numbers that came out of them.",
     "expandLabel": "Full case study",
     "collapseLabel": "Show less",
     "items": [
       {
         "title": "Custom Email Capture Popup: 52% More Subscribers Than Alia",
         "tags": ["Shopify", "JavaScript", "Liquid", "Internal Tool"],
-        "summary": "Replaced Alia — a paid Shopify subscription capture app — with a fully custom popup built in JavaScript and Liquid, embedded natively in the theme with zero external dependencies.",
-        "context": "The store relied on Alia, a paid third-party app, to capture email subscribers via popups. While functional, Alia's rigid customization limits made it slow to iterate on copy, design, and triggers — every change required working around the app's constraints instead of optimizing freely.",
-        "actions": "Built a fully custom popup system from scratch using JavaScript and Liquid, integrated directly into the Shopify theme. Designed the UX around conversion best practices: smart timing, scroll-based triggers, mobile-first layout, and easily editable copy. With no app layer in between, iteration speed increased dramatically.",
+        "summary": "Replaced Alia, a paid Shopify capture app, with a popup built in JavaScript and Liquid and embedded in the theme itself. No external dependencies.",
+        "context": "The store used Alia, a paid third-party app, to collect email subscribers through popups. It worked, but changing copy, design or triggers meant working around whatever the app allowed. Every iteration was a negotiation with someone else's product.",
+        "actions": "Built the popup from scratch in JavaScript and Liquid, straight into the Shopify theme. Timing, scroll triggers, mobile-first layout, and copy anyone on the team could edit. With no app layer in the middle, a change went live the same day.",
         "tech": ["JavaScript", "Liquid", "Shopify OS 2.0", "CSS"],
-        "impact": "Weekly new subscriber registrations jumped from 250 with Alia to 380 with the custom solution — a 52% increase — while eliminating the app's monthly fee entirely. Full control over the experience meant continuous improvement without vendor constraints.",
+        "impact": "Weekly signups went from 250 with Alia to 380 with the custom build, up 52%, and the monthly app fee disappeared. Owning the whole thing meant we could keep improving it instead of filing feature requests.",
         "metric": "+52%",
         "metricLabel": "weekly subscribers vs Alia",
         "stat1": "250",
@@ -271,11 +271,11 @@
       {
         "title": "Real-Time Inventory Sync: Shopify ↔ Amazon ↔ Mercado Libre",
         "tags": ["TypeScript", "Node.js", "Shopify API", "Amazon SP-API", "Mercado Libre API"],
-        "summary": "Built a custom inventory synchronization system that keeps stock levels consistent across Shopify, Amazon, and Mercado Libre in real time — eliminating overselling and manual updates across 6,000 SKUs and 5,000 monthly orders.",
-        "context": "The store operated across three sales channels simultaneously — Shopify, Amazon, and Mercado Libre — but inventory was managed manually. Every order on any channel required someone to update the other two by hand. Overselling was a constant risk: if a product sold out on Amazon, Shopify and Mercado Libre still showed it as available. The operational overhead was significant and the margin for error was high.",
-        "actions": "Designed and built a bidirectional sync engine using TypeScript and Node.js. Shopify webhooks fire in real time on every order, fulfillment, and manual inventory adjustment — including bulk changes via Matrixify — and push updates instantly to Amazon (via SP-API) and Mercado Libre (via their official API). In the opposite direction, a polling service runs every 5 minutes to pull order and stock changes from both marketplaces and reflect them in Shopify. The system handles conflict resolution, retry logic, and error logging to ensure no update is ever silently dropped.",
+        "summary": "A custom sync that keeps stock consistent across Shopify, Amazon and Mercado Libre in real time. No more overselling and no more manual updates across 6,000 SKUs and 5,000 orders a month.",
+        "context": "The store sold on three channels at once (Shopify, Amazon, Mercado Libre) and inventory was handled by hand. Every order on one channel meant somebody updating the other two. Overselling was a permanent risk: sell out on Amazon and the other two would happily keep taking orders. The operational cost was real, and so was the margin for error.",
+        "actions": "Designed and built a two-way sync engine in TypeScript and Node.js. Shopify webhooks fire on every order, fulfillment and manual stock adjustment, including bulk edits through Matrixify, and push the change straight to Amazon (SP-API) and Mercado Libre (their official API). Going the other way, a polling service runs every 5 minutes to pull order and stock changes from both marketplaces back into Shopify. Conflict resolution, retry logic and error logging are in there so nothing gets dropped quietly.",
         "tech": ["TypeScript", "Node.js", "Shopify Webhooks", "Shopify REST API", "Amazon SP-API", "Mercado Libre API", "Matrixify"],
-        "impact": "6,000 SKUs stay in sync across 3 channels with zero manual intervention. 5,000 monthly orders are processed automatically with no overselling incidents. Shopify-to-marketplace updates fire in real time; marketplace-to-Shopify sync completes within 5 minutes. The operations team eliminated the manual inventory update workflow entirely.",
+        "impact": "6,000 SKUs stay in sync across 3 channels with nobody touching them. 5,000 orders a month go through automatically and the overselling stopped. Shopify to marketplace is instant; marketplace back to Shopify lands inside 5 minutes. Operations dropped the manual inventory routine entirely.",
         "metric": "6,000",
         "metricLabel": "SKUs synced across 3 channels",
         "stat1": "5,000",
@@ -287,12 +287,12 @@
         "title": "Custom Search Engine: Algolia Replacement Built In-House",
         "tags": ["TypeScript", "JavaScript", "Liquid", "Shopify", "In Testing"],
         "status": "testing",
-        "statusLabel": "Currently A/B Testing",
-        "summary": "Built a full-featured search engine embedded natively in the Shopify theme to replace Algolia — including synonym matching, autocomplete, word prediction, improved relevance ranking, and recent searches — at zero monthly licensing cost.",
-        "context": "The store was paying for Algolia to power its search experience. While capable, Algolia's cost, integration overhead, and limited control over ranking logic made it a candidate for replacement. The goal was to build an equivalent experience in-house — one that could be iterated on freely and extended without vendor constraints.",
-        "actions": "Designed and built a custom search engine using TypeScript and JavaScript, embedded directly into the Shopify theme via Liquid. The engine indexes product data and supports: fuzzy matching and synonym resolution for typo-tolerant queries, predictive autocomplete as the user types, word prediction to surface likely completions, improved relevance ranking based on product metadata, and a recent searches history stored client-side. The entire solution runs without any third-party search service.",
+        "statusLabel": "Live A/B test",
+        "summary": "A full search engine built into the Shopify theme to replace Algolia: synonyms, autocomplete, word prediction, better relevance ranking and recent searches. Licensing cost of zero.",
+        "context": "The store paid for Algolia to run its search. It was capable, but between the cost, the integration overhead and how little control we had over ranking logic, it was worth trying to replace. The goal was an equivalent experience we could change whenever we wanted.",
+        "actions": "Built the engine in TypeScript and JavaScript, embedded in the theme through Liquid. It indexes product data and handles fuzzy matching and synonyms for typo-tolerant queries, predictive autocomplete as you type, word prediction for likely completions, relevance ranking based on product metadata, and a recent-searches history kept client-side. No third-party search service anywhere in it.",
         "tech": ["TypeScript", "JavaScript", "Liquid", "Shopify OS 2.0", "Shopify Storefront API"],
-        "impact": "Currently running as an A/B test against Algolia in production. Early results show performance on par with Algolia across key search engagement metrics — with the added benefit of full ownership, zero licensing fees, and the ability to iterate on ranking logic without waiting on a vendor. Results are ongoing; data will be published once the test reaches statistical significance.",
+        "impact": "It's running as an A/B test against Algolia in production right now. So far it performs on par on the search engagement metrics, with the added benefit of full ownership, no licensing fee, and ranking logic I can change without waiting on a vendor. The test is still going; I'll publish numbers once it reaches significance.",
         "metric": "A/B",
         "metricLabel": "live test vs Algolia",
         "stat1": "0",
@@ -301,15 +301,15 @@
         "stat2Label": "search features built"
       },
       {
-        "title": "Dignemi — Mental Wellness App for the Spanish-Speaking Market",
+        "title": "Dignemi: Mental Wellness App for Spanish Speakers",
         "tags": ["React Native", "Expo", "NestJS", "TypeScript", "SQLite", "Personal Project"],
         "status": "personal",
         "statusLabel": "Personal Project · In Progress",
-        "summary": "A privacy-first, offline-first mobile mental health app targeting the Spanish-speaking market. Users track emotional wellbeing, practice guided exercises, and keep a personal diary — with no constant connectivity required and no data shared without explicit consent.",
-        "context": "Mental health apps in the Hispanic market are either in English, built with poor privacy practices, or require constant internet access. Dignemi was designed from the ground up for Spanish-speaking users who value privacy: analytics are off by default, cloud sync requires explicit opt-in, and all personal data lives locally on the device until the user decides otherwise.",
-        "actions": "Built fullstack in TypeScript end-to-end. Frontend: React Native 0.81.5 with Expo SDK 54, Expo Router 6 (typed file-based navigation), Zustand for session and preferences state, SQLite (expo-sqlite) for all local persistence with an offline-first sync model. Backend: NestJS REST API deployed on Render, with JWT auth, Google Sign-In server-side validation, and a bidirectional incremental sync engine (push/pull with deviceUpdatedAt, isDeleted, and synced flags). Integrated 4 validated psychological assessments (GAD-2, GAD-7, PHQ-2, PSS-4) with full intro → questions → result → recommendation flows. Built an animated breathing exercise player with configurable protocols, a multi-step guided exercise system, an emotional diary with mood tracking and tags, a content library, and structured multi-session programs. Animations built with React Native Reanimated 4 using staggered patterns and spring physics. New Architecture and React Compiler enabled experimentally for performance. Design system built from scratch: semantic color palette, typography scale, spacing, shadows, radii, and motion tokens in a centralized theme file.",
+        "summary": "A privacy-first, offline-first mental health app for the Spanish-speaking market. People track how they're doing, run guided exercises and keep a diary, with no connection required and nothing leaving the phone unless they say so.",
+        "context": "Mental health apps for the Hispanic market tend to be in English, careless with privacy, or useless without a connection. Dignemi was built the other way round: analytics off by default, cloud sync only if you opt in, and everything stored on the device until the user decides otherwise.",
+        "actions": "TypeScript end to end. On the front, React Native 0.81.5 with Expo SDK 54, Expo Router 6 for typed file-based navigation, Zustand for session and preference state, and SQLite (expo-sqlite) for local persistence under an offline-first sync model. On the back, a NestJS REST API on Render with JWT auth, server-side Google Sign-In validation, and an incremental two-way sync engine (push/pull with deviceUpdatedAt, isDeleted and synced flags). Four validated psychological assessments are in there (GAD-2, GAD-7, PHQ-2, PSS-4) with the full intro → questions → result → recommendation flow. Plus an animated breathing player with configurable protocols, a multi-step guided exercise system, an emotional diary with mood tracking and tags, a content library, and structured multi-session programs. Animations use React Native Reanimated 4 with staggered patterns and spring physics. New Architecture and React Compiler are on experimentally. The design system is my own: semantic palette, type scale, spacing, shadows, radii and motion tokens in one theme file.",
         "tech": ["React Native 0.81.5", "Expo SDK 54", "TypeScript", "Expo Router 6", "Zustand", "SQLite", "NestJS", "JWT", "Google Sign-In", "React Native Reanimated 4", "PostHog"],
-        "impact": "Personal project nearly complete. Demonstrates full-stack TypeScript architecture, offline-first data design, privacy-by-design principles, complex animation systems, and domain knowledge in mental health UX. Built to address a real gap in the Spanish-language mental health app market.",
+        "impact": "Nearly finished. It covers full-stack TypeScript, offline-first data design, privacy by default, a fair amount of animation work, and enough mental health UX to be useful. Built because the gap in Spanish-language mental health apps is a real one.",
         "metric": "Privacy-first",
         "metricLabel": "consent-based architecture",
         "stat1": "4",
@@ -322,11 +322,11 @@
         "tags": ["Vanilla JS", "Liquid", "Shopify OS 2.0", "A/B Testing", "Analytics"],
         "status": "ready",
         "statusLabel": "Built · Pending A/B Deploy",
-        "summary": "A fully custom recommendation widget system built to replace Rebuy — covering 6 widget types across 5 page templates, with built-in A/B testing, dataLayer analytics, and performance constraints of <8KB JS per widget. No libraries, no jQuery, no React.",
-        "context": "The store was paying for Rebuy to power product recommendations across its storefront. Rebuy added third-party JavaScript weight, limited control over UX and ranking logic, and significant monthly cost. The goal was to build an equivalent system from scratch — with more flexibility, better performance, and full ownership of the experimentation layer. The project was built and is queued for A/B testing once the Algolia search test concludes.",
-        "actions": "Designed and built a unified Shopify OS 2.0 section (reco-unified.liquid) capable of rendering 7 widget types via section blocks: Recently Viewed, Best Sellers (global and by category), PDP native recommendations, PLP/Collection recommendations, Cart recommendations (deduplicated, excluding in-cart items), Account recommendations (customer-aware), and Custom Collection. Data sources: Shopify's native product recommendations endpoint, best-seller collections, localStorage for recently viewed history (TTL 14 days, max 20 items, deduped by ID), and Sections Rendering API for card hydration. Built reco.js as a plain UMD module under 8KB gzip per widget: IntersectionObserver for lazy loading and impression tracking, A/B bucketing persisted to localStorage for 30 days, and full dataLayer event emission (reco_impression, reco_click, reco_add_to_cart) with widget_type, position, and ab_variant on every event. Performance: skeleton placeholders to prevent CLS, lazy image loading, aspect-ratio reserved containers, SSR card rendering via Liquid with JS hydration islands only where needed. Quick Add built accessible: spinner states, aria-label, keyboard navigation, POST to /cart/add.js with event emission. Stock filter applied at every data source — OOS products never render.",
+        "summary": "A custom recommendation widget system built to replace Rebuy: 6 widget types across 5 page templates, with A/B testing, dataLayer analytics and a budget of under 8KB of JS per widget. No libraries, no jQuery, no React.",
+        "context": "The store paid Rebuy to power product recommendations across the storefront. It came with third-party JavaScript weight, little control over UX and ranking logic, and a monthly bill. So I built the equivalent from scratch, with more flexibility, better performance and the experimentation layer under our own roof. It's finished and queued for A/B testing as soon as the Algolia search test wraps up.",
+        "actions": "Designed and built one unified Shopify OS 2.0 section (reco-unified.liquid) that renders 7 widget types through section blocks: Recently Viewed, Best Sellers (global and by category), PDP native recommendations, PLP/Collection recommendations, Cart recommendations (deduplicated, excluding what's already in the cart), Account recommendations (customer-aware), and Custom Collection. Data comes from Shopify's native recommendations endpoint, best-seller collections, localStorage for recently viewed history (TTL 14 days, max 20 items, deduped by ID), and the Sections Rendering API for card hydration. reco.js is a plain UMD module under 8KB gzip per widget: IntersectionObserver for lazy loading and impression tracking, A/B bucketing kept in localStorage for 30 days, and full dataLayer events (reco_impression, reco_click, reco_add_to_cart) carrying widget_type, position and ab_variant. For performance: skeleton placeholders to prevent CLS, lazy image loading, aspect-ratio reserved containers, and SSR card rendering in Liquid with JS hydration islands only where they're needed. Quick Add is accessible, with spinner states, aria-label, keyboard navigation and a POST to /cart/add.js that emits its own event. Stock filtering runs at every data source, so an out-of-stock product never renders.",
         "tech": ["Liquid", "JavaScript (Vanilla)", "Shopify OS 2.0", "Sections Rendering API", "Shopify Storefront API", "localStorage A/B", "dataLayer / GTM", "IntersectionObserver", "CSS BEM"],
-        "impact": "Built and ready to deploy. Replaces Rebuy across 5 page templates with 6 active widget types. JS budget held under 8KB gzip per widget. Zero third-party dependencies. A/B infrastructure built-in from day one — bucketing, event tracking, and variant labeling on every analytics event. Pending live A/B test against Rebuy once current Algolia experiment concludes.",
+        "impact": "Built and ready to go out. It replaces Rebuy across 5 page templates with 6 live widget types, holds under 8KB gzip of JS per widget, and ships zero third-party dependencies. The A/B infrastructure was in from day one: bucketing, event tracking and variant labels on every analytics event. It goes live against Rebuy once the Algolia experiment is done.",
         "metric": "6",
         "metricLabel": "widget types · 5 page templates",
         "stat1": "< 8KB",
@@ -345,37 +345,37 @@
       {
         "title": "Software Developer & CRO Specialist",
         "company": "High Street",
-        "period": "Nov 2022 – Present",
+        "period": "Nov 2022 - Present",
         "location": "Mexico (Remote)",
         "bullets": [
-          "Led end-to-end CRO strategy for a Shopify e-commerce store — from experimentation design to post-test analysis and implementation.",
-          "Directed A/B testing program using Intelligems, achieving 4+ experiments/week at statistical significance with consistent 20–30% uplifts.",
-          "Overhauled Shopify OS 2.0 theme architecture using Liquid and JavaScript, improving performance, UX, and conversion metrics.",
-          "Built 20+ internal tools and automations to streamline workflows and reduce vendor dependency.",
-          "Collaborated cross-functionally with marketing on LTV, bounce rate, and funnel metrics.",
-          "Managed and mentored 2 developers, accelerating delivery using AI-assisted development workflows."
+          "Led CRO end to end for a Shopify store, from experiment design through post-test analysis and implementation.",
+          "Ran the A/B testing program on Intelligems, holding 4+ experiments a week at statistical significance with winners at 20-30%.",
+          "Rebuilt the Shopify OS 2.0 theme architecture in Liquid and JavaScript, improving performance, UX and conversion.",
+          "Built 20+ internal tools and automations to cut manual work and vendor dependency.",
+          "Worked with marketing on LTV, bounce rate and funnel metrics to decide what to build next.",
+          "Managed and mentored 2 developers, speeding up delivery with AI-assisted workflows."
         ]
       },
       {
         "title": "Software Developer",
         "company": "Bitcon Solutions",
-        "period": "Jul 2019 – Oct 2022",
+        "period": "Jul 2019 - Oct 2022",
         "location": "Guadalajara, Jalisco",
         "bullets": [
           "Built production ERP modules using ExtJS (frontend) and Laravel (backend).",
-          "Maintained high-availability production systems with minimal downtime.",
-          "Designed and optimized advanced MySQL queries for large-dataset reporting.",
-          "Collaborated with stakeholders in Scrum teams on enterprise software delivery."
+          "Kept high-availability production systems running with minimal downtime.",
+          "Designed and tuned advanced MySQL queries for large-dataset reporting.",
+          "Worked with stakeholders in Scrum teams delivering enterprise software."
         ]
       },
       {
         "title": "Software Developer",
         "company": "Mozcalti (Actyva Tics)",
-        "period": "Nov 2018 – May 2019",
+        "period": "Nov 2018 - May 2019",
         "location": "Ameca, Jalisco",
         "bullets": [
           "Developed web applications in Core Java and Spring Boot.",
-          "Built UI components using Bootstrap and jQuery.",
+          "Built UI components with Bootstrap and jQuery.",
           "Designed and consumed RESTful APIs in a microservices architecture.",
           "Wrote automated tests with JUnit."
         ]
@@ -383,13 +383,13 @@
       {
         "title": "Software Developer (Projects)",
         "company": "Universidad de Guadalajara",
-        "period": "Aug 2017 – Nov 2018",
+        "period": "Aug 2017 - Nov 2018",
         "location": "Ameca, Jalisco",
         "bullets": [
           "Delivered websites and desktop applications for university departments.",
           "Built Laravel web systems and Java Swing desktop apps.",
           "Designed PostgreSQL schemas and optimized database queries.",
-          "Worked with both Scrum and Waterfall methodologies."
+          "Worked with both Scrum and Waterfall, depending on the project."
         ]
       }
     ]
@@ -436,14 +436,14 @@
   "education": {
     "label": "Education",
     "degree": "BSc in Information Technologies",
-    "institution": "Universidad de Guadalajara — Centro Universitario de los Valles",
-    "period": "Jan 2015 – Jan 2019",
+    "institution": "Universidad de Guadalajara, Centro Universitario de los Valles",
+    "period": "Jan 2015 - Jan 2019",
     "location": "Ameca, Jalisco, Mexico"
   },
   "contact": {
     "label": "Contact",
     "headline": "Let's build something worth measuring.",
-    "subheadline": "I'm open to senior software engineering, Shopify development, CRO, experimentation, and product engineering roles — especially remote positions with high-growth teams.",
+    "subheadline": "I'm open to senior roles in software engineering, Shopify development, CRO, experimentation and product engineering. Remote, ideally, with a team that's growing.",
     "nameLabel": "Name",
     "emailLabel": "Email",
     "messageLabel": "Message",
@@ -454,8 +454,8 @@
     "orDivider": "Or reach me directly",
     "downloadResume": "Download Resume",
     "sending": "Sending...",
-    "successMsg": "Message sent! I'll get back to you shortly.",
-    "errorMsg": "Something went wrong. Please try again or email me directly."
+    "successMsg": "Message sent. I'll get back to you shortly.",
+    "errorMsg": "Something went wrong. Try again, or just email me directly."
   },
   "footer": {
     "ctaLabel": "Have a project?",
@@ -463,7 +463,7 @@
     "colNavigate": "Navigate",
     "colContact": "Contact",
     "colAvailability": "Availability",
-    "availability": "Open to remote roles & collaborations. Currently building CRO systems at High Street.",
-    "built": "Built with Next.js & Tailwind."
+    "availability": "Open to remote roles and collaborations. Currently building CRO systems at High Street.",
+    "built": "Built with Next.js and Tailwind."
   }
 }

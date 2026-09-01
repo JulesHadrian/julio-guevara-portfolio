@@ -20,12 +20,12 @@ export async function generateMetadata({
   const isEs = locale === "es";
 
   const title = isEs
-    ? `${siteConfig.name} — Desarrollador de Software y Especialista en CRO`
-    : `${siteConfig.name} — Software Developer & CRO Specialist`;
+    ? `${siteConfig.name} | Desarrollador de Software y Especialista en CRO`
+    : `${siteConfig.name} | Software Developer & CRO Specialist`;
 
   const description = isEs
-    ? "Portafolio de Julio Adrián Guevara — Desarrollador de Software y Especialista en CRO con 8+ años de experiencia en Shopify, pruebas A/B y optimización de conversión."
-    : "Portfolio of Julio Adrián Guevara — Software Developer & CRO Specialist with 8+ years in Shopify, A/B testing, and conversion optimization. CVR doubled to 1.2%. 4+ experiments/week.";
+    ? "Portafolio de Julio Adrián Guevara, desarrollador de software y especialista en CRO con 8+ años en Shopify, pruebas A/B y optimización de conversión. CVR de 0.5% a 1.2%. 4+ experimentos por semana."
+    : "Portfolio of Julio Adrián Guevara, software developer and CRO specialist with 8+ years in Shopify, A/B testing and conversion optimization. CVR from 0.5% to 1.2%. 4+ experiments a week.";
 
   return {
     title,
