@@ -108,7 +108,7 @@
     "metaDescription": "Case studies de ingeniería de software, CRO y Shopify: el problema, qué cambié y qué se movió."
   },
   "caseStudy": {
-    "backToArchive": "Volver al archivo",
+    "breadcrumb": "Ruta de navegación",
     "nextProject": "Siguiente case study",
     "viewCursor": "Ver",
     "metaType": "Tipo",

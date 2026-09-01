@@ -50,7 +50,7 @@ export default async function ManifestoPage() {
       {/* Principles */}
       <div className="max-w-[1000px] mx-auto mt-28">
         <Reveal>
-          <SectionLabel>{t("principlesLabel")}</SectionLabel>
+          <SectionLabel index="01">{t("principlesLabel")}</SectionLabel>
         </Reveal>
         <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
           <RevealText text={t("principlesTitle")} by="word" />
@@ -73,7 +73,7 @@ export default async function ManifestoPage() {
       {/* Experience */}
       <div className="max-w-[1000px] mx-auto mt-28">
         <Reveal>
-          <SectionLabel>{te("label")}</SectionLabel>
+          <SectionLabel index="02">{te("label")}</SectionLabel>
         </Reveal>
         <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
           <RevealText text={te("headline")} by="word" />{" "}
@@ -99,7 +99,7 @@ export default async function ManifestoPage() {
                 <ul className="md:col-span-2 space-y-2.5">
                   {role.bullets.map((b, j) => (
                     <li key={j} className="flex items-start gap-2.5 text-sm leading-relaxed" style={{ color: "var(--text-3)" }}>
-                      <span className="mt-[7px] shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: "var(--accent)" }} />
+                      <span className="mt-[11px] shrink-0 w-2.5 h-px" style={{ backgroundColor: "var(--accent)" }} />
                       {b}
                     </li>
                   ))}
@@ -113,7 +113,7 @@ export default async function ManifestoPage() {
       {/* Capabilities */}
       <div className="max-w-[1000px] mx-auto mt-28">
         <Reveal>
-          <SectionLabel>{t("capabilitiesLabel")}</SectionLabel>
+          <SectionLabel index="03">{t("capabilitiesLabel")}</SectionLabel>
         </Reveal>
         <h2 className="font-display font-semibold tracking-[-0.02em] mb-12" style={{ fontSize: "clamp(28px, 3.6vw, 46px)", color: "var(--text-1)" }}>
           <RevealText text={ts("headline")} by="word" />{" "}
@@ -138,7 +138,7 @@ export default async function ManifestoPage() {
       {/* Education */}
       <div className="max-w-[1000px] mx-auto mt-28">
         <Reveal>
-          <SectionLabel>{ted("label")}</SectionLabel>
+          <SectionLabel index="04">{ted("label")}</SectionLabel>
         </Reveal>
         <Reveal>
           <div className="rounded-2xl border p-7" style={{ backgroundColor: "var(--card)", borderColor: "var(--border)" }}>

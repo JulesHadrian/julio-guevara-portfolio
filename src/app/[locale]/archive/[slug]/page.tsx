@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import RevealText from "@/components/motion/RevealText";
 import SkillTag from "@/components/ui/SkillTag";
@@ -40,6 +40,7 @@ export default async function CaseStudyPage({
 
   const locale = await getLocale();
   const t = await getTranslations("caseStudy");
+  const tn = await getTranslations("nav");
   const copy = await loadCaseStudyCopy(locale, cs);
 
   // Next case study (wraps around the archive order)
@@ -62,12 +63,23 @@ export default async function CaseStudyPage({
   return (
     <article className="px-6 lg:px-10 pt-32 pb-24 lg:pt-40">
       <div className="max-w-[900px] mx-auto">
-        {/* Back */}
+        {/* Breadcrumbs: the Archive crumb is the way back */}
         <Reveal>
-          <Link href={`${base}/archive`} className="link-muted inline-flex items-center gap-2 text-sm font-mono mb-12">
-            <ArrowLeft size={15} />
-            {t("backToArchive")}
-          </Link>
+          <nav aria-label={t("breadcrumb")} className="mb-12">
+            <ol className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm font-mono">
+              <li>
+                <Link href={base} className="link-muted">{tn("home")}</Link>
+              </li>
+              <li aria-hidden="true" style={{ color: "var(--border-strong)" }}>/</li>
+              <li>
+                <Link href={`${base}/archive`} className="link-muted">{tn("archive")}</Link>
+              </li>
+              <li aria-hidden="true" style={{ color: "var(--border-strong)" }}>/</li>
+              <li aria-current="page" className="truncate max-w-[34ch]" style={{ color: "var(--text-2)" }}>
+                {copy.title}
+              </li>
+            </ol>
+          </nav>
         </Reveal>
 
         {/* Hero */}
@@ -111,12 +123,12 @@ export default async function CaseStudyPage({
 
         {/* Body */}
         <div className="space-y-14">
-          <Block label={t("contextLabel")} text={copy.context} />
-          <Block label={t("actionsLabel")} text={copy.actions} />
+          <Block index="01" label={t("contextLabel")} text={copy.context} />
+          <Block index="02" label={t("actionsLabel")} text={copy.actions} />
 
           {/* Stack */}
           <Reveal>
-            <SectionLabelStack label={t("techLabel")} />
+            <BlockLabel index="03" label={t("techLabel")} />
             <div className="flex flex-wrap gap-2">
               {copy.tech.map((tech) => (
                 <SkillTag key={tech} variant="tech">{tech}</SkillTag>
@@ -125,7 +137,7 @@ export default async function CaseStudyPage({
           </Reveal>
 
           {/* Result */}
-          <Block label={t("impactLabel")} text={copy.impact} accent />
+          <Block index="04" label={t("impactLabel")} text={copy.impact} accent />
 
           {stats.length > 0 && (
             <Reveal>
@@ -157,25 +169,31 @@ export default async function CaseStudyPage({
   );
 }
 
-function Block({ label, text, accent = false }: { label: string; text: string; accent?: boolean }) {
+/**
+ * Body block header: "01 / CONTEXT ————". The index carries the reading order
+ * of the four blocks, which is why it replaced the decorative marker.
+ */
+function BlockLabel({ index, label, accent = false }: { index: string; label: string; accent?: boolean }) {
+  return (
+    <div className="flex items-center gap-3 mb-4">
+      <span className="shrink-0 text-xs font-mono tracking-[0.2em]" style={{ color: "var(--text-4)" }}>
+        {index} /
+      </span>
+      <span className="shrink-0 text-xs font-mono uppercase tracking-[0.2em]" style={{ color: accent ? "var(--accent-s)" : "var(--text-3)" }}>
+        {label}
+      </span>
+      <div className="flex-1 h-px" style={{ backgroundColor: accent ? "var(--border-strong)" : "var(--border)" }} />
+    </div>
+  );
+}
+
+function Block({ index, label, text, accent = false }: { index: string; label: string; text: string; accent?: boolean }) {
   return (
     <Reveal>
-      <p className="text-xs font-mono uppercase tracking-[0.2em] mb-4 flex items-center gap-3" style={{ color: accent ? "var(--accent-s)" : "var(--text-4)" }}>
-        <span className="w-1.5 h-1.5 rounded-[1px] rotate-45" style={{ backgroundColor: accent ? "var(--accent)" : "var(--border-strong)" }} />
-        {label}
-      </p>
+      <BlockLabel index={index} label={label} accent={accent} />
       <p className="leading-relaxed" style={{ fontSize: "17px", color: "var(--text-2)" }}>
         {text}
       </p>
     </Reveal>
-  );
-}
-
-function SectionLabelStack({ label }: { label: string }) {
-  return (
-    <p className="text-xs font-mono uppercase tracking-[0.2em] mb-4 flex items-center gap-3" style={{ color: "var(--text-4)" }}>
-      <span className="w-1.5 h-1.5 rounded-[1px] rotate-45" style={{ backgroundColor: "var(--border-strong)" }} />
-      {label}
-    </p>
   );
 }

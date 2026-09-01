@@ -36,7 +36,7 @@ export default function ServiceCard({
         {deliverables.map((d) => (
           <li key={d} className="flex items-start gap-2.5 text-sm" style={{ color: "var(--text-2)" }}>
             <span
-              className="mt-[7px] shrink-0 w-1.5 h-1.5 rounded-[1px] rotate-45"
+              className="mt-[10px] shrink-0 w-2.5 h-px"
               style={{ backgroundColor: "var(--accent)" }}
             />
             {d}
